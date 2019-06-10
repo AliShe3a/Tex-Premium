@@ -646,23 +646,5 @@ if (message.content === '@help') {
   message.author.sendEmbed(embed);
     }
 });
-client.on('message', message => {
-     if (message.content === "@servers") {
-     let embed = new Discord.RichEmbed()
-  .setColor("#0000FF")
-  .addField("**Server: **" , client.guilds.size)
-  message.channel.sendEmbed(embed);
-    }
-if (message.content === '@help') {
-         let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)    
-      .addField("***bc  :mega:**","**لـ البرودكاست**")
-      .addField("***clear :octagonal_sign:**","**لـ مسح الشات**")
-      .addField("***kick  :outbox_tray:**","**لـ طرد الأعضاء**")
-      .addField("***ban  :no_entry:**","**لـ حظر الأعضاء**")
-.setColor('RANDOM')
-  message.author.sendEmbed(embed);
-    }
-});
 
 client.login(config.token);
