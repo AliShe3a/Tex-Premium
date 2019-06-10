@@ -534,16 +534,6 @@ client.on("message", (message) => {
 
  client.login(config.token);
 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('.com')){
-      if(!message.member.hasPermission('MANAGE_MESSAGE'))
-        message.delete()
-    return message.reply(`**Don't Share Links  :x:**`)
-    }
-});
-
-client.login(config.token);
 
 client.on("message", (message) => {
     const command = message.content.split(" ")[0];
@@ -559,12 +549,3 @@ message.channel.setPosition(args[1]).then(c => {
 
 client.login(config.token);
 
-client.on('message',function(message) {
-    if(!message.channel.guild) return undefined;
-    const swearWords = ["دين امك","يا ابن المتناكا","يا متناك","كسمك"];
-    if (swearWords.some(word => message.content.includes(word)) ) {
-      message.delete()
-      message.reply("**ممنوع السب**"); 
-    }
-  });
-client.login(config.token);
