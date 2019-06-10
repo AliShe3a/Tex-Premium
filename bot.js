@@ -15,7 +15,6 @@ m.sendMessage(args)
 }
 });
 
-client.login(config.token);
 
 client.on('message', message => {
     if (message.author.id === client.user.id) return;
@@ -51,7 +50,7 @@ return;
         return;
     }
 });
-  client.login("NTg3NTk1MDc3Njk0NzgzNDg4.XP43Zg.rDI7D-W3OG_YAjIv5cQiog6MBBk" );
+
 
 client.on('message', message => {
     if (message.content.startsWith("@hack")) {
@@ -156,9 +155,9 @@ client.on('message', message => {
          }
  })
 
- client.login(config.token);
 
-var prefix = "@"
+
+
 client.on('message', message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
@@ -198,9 +197,8 @@ client.on('message', message => {
 }
 });
 
-client.login(config.token);
 
-var prefix = "@"
+
 client.on('message', message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
@@ -240,9 +238,9 @@ client.on('message', message => {
 }
 });
 
-client.login(config.token);
 
-var prefix = "@";
+
+
 
 client.on('message', message => {
   if (message.author.bot) return;
@@ -266,9 +264,8 @@ if (command == "say") {
 
 });
 
-client.login(config.token);
 
-var prefix = "@";
+
 client.on("message", message => {
     var args = message.content.substring(prefix.length).split(" ");
     if (message.content.startsWith(prefix + "clear")) {
@@ -289,8 +286,6 @@ footer: {
 
 
 });
-
-client.login(config.token);
 
 client.on("message", message => {
     if (message.author.bot) return;
@@ -326,7 +321,7 @@ client.on("message", message => {
   
   });
 
-client.login(config.token);
+
 
 client.on("message", message => {
     if (message.author.bot) return;
@@ -361,7 +356,7 @@ client.on("message", message => {
   
   });
 
-  client.login(config.token);
+  
 
   client.on('message', message => {
 
@@ -388,7 +383,6 @@ var day = message.guild.createdAt.getDate()
 
 });
 
-client.login(config.token);
 
 client.on('message', message => {
     if(message.content.startsWith('@voice')) {
@@ -399,10 +393,10 @@ client.on('message', message => {
 }
 });
 
-client.login(config.token);
+
 
 client.on("message", msg => {
-    var prefix = "@";
+  
 if(msg.content.startsWith (prefix + "id")) {
 if(!msg.channel.guild) return msg.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
 const embed = new Discord.RichEmbed();
@@ -421,7 +415,6 @@ msg.channel.send({embed: embed})
 }
 });
 
-client.login(config.token);
 
 client.on('message', message => {
     if(!message.channel.guild) return;
@@ -439,7 +432,7 @@ message.channel.send({embed:embed});
 }
 });
 
-client.login(config.token);
+
 
 
 client.on("ready", () => {
@@ -462,7 +455,7 @@ client.on("ready", () => {
         });
     });
     
-    client.login(config.token);
+ 
 
     var antispam = require("anti-spam");//npm i anti-spam
  
@@ -478,7 +471,6 @@ antispam(client, {
   time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية 
 });
 
-client.login(config.token);
 
 client.on('message', function(message) {
     if (message.channel.type === "dm") {
@@ -494,7 +486,7 @@ client.on('message', function(message) {
     }
 });
 
-client.login(config.token);
+
 
 client.on('message', message => {
     if (message.content === "@help1") {
@@ -510,7 +502,7 @@ client.on('message', message => {
   }
   });
 
-  client.login(config.token);
+  
 
 client.on('message', message => {
   
@@ -528,9 +520,9 @@ client.on('message', message => {
                                                     message.channel.sendEmbed(embed);}
                                                   });
 
-client.login(config.token);
 
-var prefix = "@";
+
+
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'help')) { //DiamondCodes - [ X_KillerYT ]
     let pages = [`
@@ -619,7 +611,7 @@ if (message.content.startsWith(prefix + 'help')) { //DiamondCodes - [ X_KillerYT
     }
 });
 
-client.login(config.token);
+
 
 
 
@@ -648,12 +640,12 @@ if(!message.channel.guild) return;
 });
 
 
-client.login(config.token);
+
 
 
 
 client.on('message', message => { 
-    var prefix = "@";
+ 
     if (message.author.boss) return;
     if (!message.content.startsWith(prefix)) return;
     let command = message.content.split(" ")[0];
@@ -671,10 +663,10 @@ client.on('message', message => {
     }
     });
 
-client.login(config.token);
 
 
-    var prefix = "@";
+
+    
 
 client.on('message', message => {
 
@@ -690,7 +682,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__
            });
              }
 //FIRE BOT
-    var prefix = "@";
+    
 
  if(message.content === prefix + "unmc") {
                      if(!message.channel.guild) return message.reply('** This command only for servers**');
