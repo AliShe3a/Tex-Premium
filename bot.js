@@ -618,8 +618,11 @@ if (message.content.startsWith(prefix + 'help')) { //DiamondCodes - [ X_KillerYT
     })
     }
 });
+
+client.login(config.token);
+
 client.on('message', message => {
-    if(message.content === '@help') {
+    if(message.content === 'adhelp') {
         message.reply('تم ارساله بالخاص :white_check_mark: ');
     }
 });
