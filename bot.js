@@ -488,19 +488,6 @@ client.on('message', function(message) {
 
 
 
-client.on('message', message => {
-    if (message.content === "@help1") {
-    let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setFooter(`© She3a ™.`, 'https://cdn.discordapp.com/attachments/540547527011860500/587670091554881537/9db11fdfd2f506c4.jpeg')
-  .setColor("#000000")
-  .addField("Done | تــــم" , ":envelope: | :sleuth_or_spy::skin-tone-3:شيك علي في الخاص")
-  
-  
-  
-  message.channel.sendEmbed(embed);
-  }
-  });
 
   
 
@@ -523,93 +510,6 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
-if (message.content.startsWith(prefix + 'help')) { //DiamondCodes - [ X_KillerYT ]
-    let pages = [`
-***__وصف عن البوت__***
-**
-:gem:  البوت فيه كثير ميزات حلوة و جميلة
- ا:rocket: البوت يعمل قرابة 24 ساعة
-**
-        ***__General orders__***
-**
-『@server /يعرض لك معلومات عن السيرفر』
-『@id / يعرض لك معلومات عنك』
-『@ping / سرعه البوت』
-『 للحصول على بريميوم كلم صاحب سيرفر السبورت 』
-『support / https://discord.gg/3Qy74SE 』
-『@voice / لتحويل الكلام الى صوت 』
-『@owmes / لرفع شكوى على عضو 』
-『@server / معلومات السيرفر 』
-『@avatar / صوره بلمنشن 』
-
-**
-  `
-,`
-        ***__Admin orders__***
-**
-『@clear / لتنظيف الشات 』
-『@say / جعل البوت يقول اشياء 』
-『@owmes / للتواصل مع الاونر 』
-『@mc / قفل الشات 』
-『@unmc / فتح الشات 』
-『@adrole   / اعطاء رتبه بالسم و المنشن  』
-『@bc / لارسال رسالة لجميع اعضاء السيرفر 』
-『@kick / لطرد شخص من الدسكورد 』
-『@ban / لاعطاء شخص باند من الدسكورد 』
-『@mute / لاعطاء شخص ميوت 』
-『@voice / لتحويل الكلام الى صوت 』
-『@obc / برود كاست للبريميوم 』
-**
-  `
-,`
-        ***__Games orders__***
-**
-『@hack   لعبه التهكير』
-**
-   
-`]
-    let page = 1;
- 
-    let embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
-    .setFooter(`Page ${page} of ${pages.length}`)
-    .setDescription(pages[page-1])
- 
-    message.author.sendEmbed(embed).then(msg => {
- 
-        msg.react('◀').then( r => {
-            msg.react('▶')
- 
- 
-        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
-        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
- 
- 
-        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
-        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
- 
- 
- 
-        backwards.on('collect', r => {
-            if (page === 1) return;
-            page--;
-            embed.setDescription(pages[page-1]);
-            embed.setFooter(`Page ${page} of ${pages.length}`);
-            msg.edit(embed)
-        })
-        forwards.on('collect', r => {
-            if (page === pages.length) return;
-     
-      page++;
-            embed.setDescription(pages[page-1]);
-            embed.setFooter(`Page ${page} of ${pages.length}`);
-            msg.edit(embed)
-        })
-        })
-    })
-    }
-});
 
 
 
