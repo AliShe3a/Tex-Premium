@@ -326,6 +326,41 @@ client.on("message", message => {
   
   });
 
+client.login(config.token);
+
+client.on("message", message => {
+    if (message.author.bot) return;
+    
+    let command = message.content.split(" ")[0];
+    
+    if (command === "@unmute") {
+          if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
+    let user = message.mentions.users.first();
+    let modlog = client.channels.find('name', 'mute-log');
+    let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
+    if (!muteRole) return message.reply("** لا يوجد لديك رتبه الميوت 'Muted' **").catch(console.error);
+    if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
+    const embed = new Discord.RichEmbed()
+      .setColor(0x00AE86)
+      .setTimestamp()
+      .addField('الأستعمال:', 'اسكت/احكي')
+      .addField('تم فك الميوت عن:', `${user.username}#${user.discriminator} (${user.id})`)
+      .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
+  
+    if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
+  
+    if (message.guild.member(user).removeRole(muteRole.id)) {
+  return message.reply("**:white_check_mark: .. تم فك الميوت عن الشخص **").catch(console.error);
+  } else {
+      message.guild.member(user).removeRole(muteRole).then(() => {
+  return message.reply("**:white_check_mark: .. تم فك الميوت عن الشخص **").catch(console.error);
+  });
+    }
+  
+  };
+  
+  });
+
   client.login(config.token);
 
   client.on('message', message => {
@@ -476,3 +511,158 @@ client.on('message', message => {
   });
 
   client.login(config.token);
+
+client.on("message", (message) => {
+    const command = message.content.split(" ")[0];
+    const args = message.content.split(" ").slice();
+  if(command === "@defin"){
+       let member = message.mentions.users.first(); 
+    message.guild.members.get(member.id).setDeaf(true);
+   }
+}).catch(console.error);
+
+  client.login(config.token);
+
+client.on("message", (message) => {
+    const command = message.content.split(" ")[0];
+    const args = message.content.split(" ").slice();
+  if(command === "@undefin"){
+       let member = message.mentions.users.first(); 
+    message.guild.members.get(member.id).setDeaf(null);
+   }
+}).catch(console.error);
+
+ client.login(config.token);
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('.com')){
+      if(!message.member.hasPermission('MANAGE_MESSAGE'))
+        message.delete()
+    return message.reply(`**Don't Share Links  :x:**`)
+    }
+});
+
+client.login(config.token);
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('.org')){
+      if(!message.member.hasPermission('MANAGE_MESSAGE'))
+        message.delete()
+    return message.reply(`**Don't Share Links  :x:**`)
+    }
+});
+
+client.login(config.token);
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('.html')){
+      if(!message.member.hasPermission('MANAGE_MESSAGE'))
+        message.delete()
+    return message.reply(`**Don't Share Links  :x:**`)
+    }
+});
+
+client.login(config.token);
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('.net')){
+      if(!message.member.hasPermission('MANAGE_MESSAGE'))
+        message.delete()
+    return message.reply(`**Don't Share Links  :x:**`)
+    }
+});
+
+client.login(config.token);
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('.gg')){
+      if(!message.member.hasPermission('MANAGE_MESSAGE'))
+        message.delete()
+    return message.reply(`**Don't Share Links  :x:**`)
+    }
+});
+client.login(config.token);
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('.ee')){
+      if(!message.member.hasPermission('MANAGE_MESSAGE'))
+        message.delete()
+    return message.reply(`**Don't Share Links :x:**`)
+    }
+});
+client.login(config.token);
+
+client.on("message", (message) => {
+    const command = message.content.split(" ")[0];
+    const args = message.content.split(" ").slice();
+  if(command === "@move"){
+            let member = message.mentions.users.first(); 
+    if(typeof args[1] !== "number")
+message.channel.setPosition(args[1]).then(c => {
+    message.channel.send("ok");
+});
+}
+});//.catch(console.error);
+
+client.login(config.token);
+
+client.on('message',function(message) {
+    if(!message.channel.guild) return undefined;
+    const swearWords = ["دين امك","يا ابن المتناكا","يا متناك","كسمك"];
+    if (swearWords.some(word => message.content.includes(word)) ) {
+      message.delete()
+      message.reply("**ممنوع السب**"); 
+    }
+  });
+client.login(config.token);
+
+client.on('message', message => {
+     if (message.content === "@servers") {
+     let embed = new Discord.RichEmbed()
+  .setColor("#0000FF")
+  .addField("**Server: **" , client.guilds.size)
+  message.channel.sendEmbed(embed);
+    }
+if (message.content === '@help') {
+         let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)    
+      .addField("**:globe_with_meridians: الأوامر العامه**","** **")
+      .addField("***@ping :stopwatch:**","**لـ سرعة إتصالك**")
+      .addField("***@id :chart_with_downwards_trend:**","**عرض سرعه اتصال البوت**")
+      .addField("***@obc :camping:**","**لـ البرود كاست بريميوم**")
+      .addField("***@hack :1234:**","**لـعبه التهكير**")
+      .addField("***@server :recycle:**","**لـ معلومات السيرفر**")
+      .addField("***@clear :medal: **","**مسح محادثات الشات**")
+      .addField("***@say :arrows_counterclockwise:**","**لـ يكرر الكلام اللى تقوله**")
+      .addField("***@servers :alarm_clock:**","**لامساعده**")
+      .addField("***@bc **","**لـ برود كاست رتبه ادمن بأمبيد**")
+.setColor('RANDOM')
+  message.author.sendEmbed(embed);
+    }
+});
+client.on('message', message => {
+     if (message.content === "@servers") {
+     let embed = new Discord.RichEmbed()
+  .setColor("#0000FF")
+  .addField("**Server: **" , client.guilds.size)
+  message.channel.sendEmbed(embed);
+    }
+if (message.content === '@help') {
+         let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)    
+      .addField("***bc  :mega:**","**لـ البرودكاست**")
+      .addField("***clear :octagonal_sign:**","**لـ مسح الشات**")
+      .addField("***kick  :outbox_tray:**","**لـ طرد الأعضاء**")
+      .addField("***ban  :no_entry:**","**لـ حظر الأعضاء**")
+.setColor('RANDOM')
+  message.author.sendEmbed(embed);
+    }
+});
+
+client.login(config.token);
