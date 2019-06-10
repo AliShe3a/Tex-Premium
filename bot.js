@@ -545,59 +545,6 @@ client.on('message', message => {
 
 client.login(config.token);
 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('.org')){
-      if(!message.member.hasPermission('MANAGE_MESSAGE'))
-        message.delete()
-    return message.reply(`**Don't Share Links  :x:**`)
-    }
-});
-
-client.login(config.token);
-
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('.html')){
-      if(!message.member.hasPermission('MANAGE_MESSAGE'))
-        message.delete()
-    return message.reply(`**Don't Share Links  :x:**`)
-    }
-});
-
-client.login(config.token);
-
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('.net')){
-      if(!message.member.hasPermission('MANAGE_MESSAGE'))
-        message.delete()
-    return message.reply(`**Don't Share Links  :x:**`)
-    }
-});
-
-client.login(config.token);
-
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('.gg')){
-      if(!message.member.hasPermission('MANAGE_MESSAGE'))
-        message.delete()
-    return message.reply(`**Don't Share Links  :x:**`)
-    }
-});
-client.login(config.token);
-
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('.ee')){
-      if(!message.member.hasPermission('MANAGE_MESSAGE'))
-        message.delete()
-    return message.reply(`**Don't Share Links :x:**`)
-    }
-});
-client.login(config.token);
-
 client.on("message", (message) => {
     const command = message.content.split(" ")[0];
     const args = message.content.split(" ").slice();
@@ -620,31 +567,4 @@ client.on('message',function(message) {
       message.reply("**ممنوع السب**"); 
     }
   });
-client.login(config.token);
-
-client.on('message', message => {
-     if (message.content === "@servers") {
-     let embed = new Discord.RichEmbed()
-  .setColor("#0000FF")
-  .addField("**Server: **" , client.guilds.size)
-  message.channel.sendEmbed(embed);
-    }
-if (message.content === '@help') {
-         let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)    
-      .addField("**:globe_with_meridians: الأوامر العامه**","** **")
-      .addField("***@ping :stopwatch:**","**لـ سرعة إتصالك**")
-      .addField("***@id :chart_with_downwards_trend:**","**عرض سرعه اتصال البوت**")
-      .addField("***@obc :camping:**","**لـ البرود كاست بريميوم**")
-      .addField("***@hack :1234:**","**لـعبه التهكير**")
-      .addField("***@server :recycle:**","**لـ معلومات السيرفر**")
-      .addField("***@clear :medal: **","**مسح محادثات الشات**")
-      .addField("***@say :arrows_counterclockwise:**","**لـ يكرر الكلام اللى تقوله**")
-      .addField("***@servers :alarm_clock:**","**لامساعده**")
-      .addField("***@bc **","**لـ برود كاست رتبه ادمن بأمبيد**")
-.setColor('RANDOM')
-  message.author.sendEmbed(embed);
-    }
-});
-
 client.login(config.token);
