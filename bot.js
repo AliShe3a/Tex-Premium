@@ -1,5 +1,7 @@
+    
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const prefix = "@"
 const config = require('./config.json');
 client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
 
@@ -14,7 +16,6 @@ m.sendMessage(args)
 })
 }
 });
-
 
 client.on('message', message => {
     if (message.author.id === client.user.id) return;
@@ -175,7 +176,6 @@ client.on('message', message => {
   let user = message.mentions.users.first();
   let reason = message.content.split(" ").slice(2).join(" ");
   /*let b5bzlog = client.channels.find("name", "5bz-log");
-
   if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
   if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
   if(!reason) return message.reply ("**اكتب سبب الطرد**");
@@ -216,7 +216,6 @@ client.on('message', message => {
   let user = message.mentions.users.first();
   let reason = message.content.split(" ").slice(2).join(" ");
   /*let b5bzlog = client.channels.find("name", "5bz-log");
-
   if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
   if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
   if(!reason) return message.reply ("**اكتب سبب الطرد**");
@@ -238,10 +237,6 @@ client.on('message', message => {
 }
 });
 
-
-
-
-
 client.on('message', message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
@@ -251,8 +246,6 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
   
- 
-
 if (command == "say") {
     let say = new Discord.RichEmbed()
     .setDescription(args.join("  "))
@@ -263,8 +256,6 @@ if (command == "say") {
 
 
 });
-
-
 
 client.on("message", message => {
     var args = message.content.substring(prefix.length).split(" ");
@@ -283,8 +274,6 @@ footer: {
 }
 }}).then(msg => {msg.delete(3000)});
                   }
-
-
 });
 
 client.on("message", message => {
@@ -321,8 +310,6 @@ client.on("message", message => {
   
   });
 
-
-
 client.on("message", message => {
     if (message.author.bot) return;
     
@@ -356,8 +343,6 @@ client.on("message", message => {
   
   });
 
-  
-
   client.on('message', message => {
 
     if (message.content === "@server") {
@@ -383,7 +368,6 @@ var day = message.guild.createdAt.getDate()
 
 });
 
-
 client.on('message', message => {
     if(message.content.startsWith('@voice')) {
     let args = message.content.split(' ').slice(1);
@@ -392,8 +376,6 @@ client.on('message', message => {
     message.channel.send(ar,{tts:true});
 }
 });
-
-
 
 client.on("message", msg => {
   
@@ -415,7 +397,6 @@ msg.channel.send({embed: embed})
 }
 });
 
-
 client.on('message', message => {
     if(!message.channel.guild) return;
 if (message.content.startsWith('@ping')) {
@@ -431,9 +412,6 @@ let embed = new Discord.RichEmbed()
 message.channel.send({embed:embed});
 }
 });
-
-
-
 
 client.on("ready", () => {
     client.user.setPresence({
@@ -454,9 +432,7 @@ client.on("ready", () => {
       }
         });
     });
-    
  
-
     var antispam = require("anti-spam");//npm i anti-spam
  
 antispam(client, {
@@ -482,42 +458,9 @@ client.on('message', function(message) {
         .setThumbnail(`${message.author.avatarURL}`)
         .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
         .setFooter(`From **${message.author.tag} (${message.author.id})**`)
-    client.channels.get("587606171595046912").send({embed:iiMo});
+    client.channels.get("588077530175504399").send({embed:iiMo});
     }
 });
-
-
-
-
-  
-
-client.on('message', message => {
-  
-    if(message.content.split(' ')[0] == '@owmes'){
-         if(!message.channel.guild) return;
-                            let args = message.content.split(' ').slice(1).join(' ');
-    
-    client.guilds.get("584735012390436874").members.get("357961207019470851").sendMessage(message.author.tag+"\n Message : "+args)
-    
-                                                    let embed = new Discord.RichEmbed()
-                                                    .setAuthor(message.author.username, message.author.avatarURL)
-                                                    .setDescription(':mailbox_with_mail: تم ارسال صاحب البوت بنجاح')
-                                                    .setThumbnail(message.author.avatarURL)
-                                                    .setFooter(message.author.username, message.author.avatarURL)
-                                                    message.channel.sendEmbed(embed);}
-                                                  });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 client.on('message', message => { 
@@ -539,9 +482,101 @@ client.on('message', message => {
     }
     });
 
+    client.on('message', message => {
 
-
-
+      if(message.content === prefix + "mc") {
+                          if(!message.channel.guild) return message.reply('** This command only for servers**');
   
+  if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
+             message.channel.overwritePermissions(message.guild.id, {
+           SEND_MESSAGES: false
+  
+             }).then(() => {
+                 message.reply("**__تم تقفيل الشات__ :white_check_mark: **")
+             });
+               }
+  //FIRE BOT
+   if(message.content === prefix + "unmc") {
+                       if(!message.channel.guild) return message.reply('** This command only for servers**');
+  
+  if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
+             message.channel.overwritePermissions(message.guild.id, {
+           SEND_MESSAGES: true
+  
+             }).then(() => {
+                 message.reply("**__تم فتح الشات__:white_check_mark:**")
+             });
+               }
+               
+        
+      
+  });
+
+  client.on('message', message => {
+    if (message.content.startsWith("رابط")) {
+        
+  message.channel.createInvite({
+        thing: true,
+        maxUses: 5,
+        maxAge: 86400
+    }).then(invite =>  
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("2fff00")
+        .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
+        .setFooter("Spring-Team")
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("2fff00")
+        .setDescription(`
+**-------------------
+-هذا هو الرابط 
+-ارسله للي تحب وحيآك انت وياه
+-ونورنا ياجميل :heart: 
+------------------- **`)
+        .setFooter("By:shyboy_05")
+      message.author.sendEmbed(Embed11)
+    }
+});
+
+client.on('message', function(message) {
+  if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+          let command = message.content.split(" ")[0];
+      if(message.content.includes('discord.gg')){
+      message.reply (' ')
+         if(!message.channel.guild) return message.reply('** This command only for servers**');
+   message.member.addRole(message.guild.roles.find('name', 'Muted')); 
+  const embed500 = new Discord.RichEmbed()
+    .setTitle(":x: | تمت معاقبتك")
+          .addField(`** لقد قمت بمخالفة قوانين السيرفر من خلال نشر سيرفرات اخرى  **` , `**ان كأن هاذه الميوت عن طريق الخطأ تواصل مع احد اعضاء الادارة**`)
+    .addField(`Magic`,`Server`)
+          .setColor("c91616")
+          .setThumbnail(`${message.author.avatarURL}`)
+          .setAuthor(message.author.username, message.author.avatarURL) 
+      .setFooter(`${message.guild.name} Server`)
+   message.channel.send(embed500) 
+  
+      
+  }
+  }
+})
+
+client.on('message', message => {
+  if (message.content.startsWith("@avatar")) {
+      var mentionned = message.mentions.users.first();
+  var x5bzm;
+    if(mentionned){
+        var x5bzm = mentionned;
+    } else {
+        var x5bzm = message.author;
+        
+    }
+      const embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setImage(`${x5bzm.avatarURL}`)
+    message.channel.sendEmbed(embed);
+  }
+});
 
 client.login(config.token);
