@@ -447,21 +447,19 @@ antispam(client, {
   time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية 
 });
 
-
 client.on('message', function(message) {
     if (message.channel.type === "dm") {
         if (message.author.id === client.user.id) return;
         var iiMo = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setTimestamp()
-        .setTitle('``Premium requist!``')
+        .setTitle('``I have received a new DM !``')
         .setThumbnail(`${message.author.avatarURL}`)
         .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
         .setFooter(`From **${message.author.tag} (${message.author.id})**`)
     client.channels.get("588077530175504399").send({embed:iiMo});
     }
 });
-
 
 client.on('message', message => { 
  
@@ -635,6 +633,35 @@ client.on('message', message => {
       **---------------------------**
             `);
     }) 
+    }
+    });
+
+client.on('message', message => {
+    var prefix = "@";
+      if (!message.content.startsWith(prefix)) return;
+      var args = message.content.split(' ').slice(1);
+      var argresult = args.join(' ');
+      if (message.author.id == 357961207019470851) return;
+    
+    if (message.content.startsWith(prefix + 'playing')) {
+      client.user.setGame(argresult);
+        message.channel.sendMessage(`**${argresult}** : Status changed`)
+    } else
+    
+    if (message.content.startsWith(prefix + 'Stream')) {
+      client.user.setGame(argresult, "https://www.twitch.tv/ChampionBot");
+        message.channel.sendMessage(`**${argresult}** :The bot stream has been changed`)
+    } else
+    
+    if (message.content.startsWith(prefix + 'name')) {
+      client.user.setUsername(argresult).then
+          message.channel.sendMessage(`**${argresult}** : Name changed`)
+      return message.reply("**You**");
+    } else
+    if (message.content.startsWith(prefix + 'image')) {
+      client.user.setAvatar(argresult);
+        message.channel.sendMessage(`**${argresult}** : The bot image has been changed`);
+    
     }
     });
 
