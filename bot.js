@@ -546,7 +546,7 @@ client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
       
-  if (message.content.startsWith(prefix + 'playing')) {
+  if (message.content.startsWith(prefix + 'play')) {
     client.user.setGame(argresult);
       message.channel.sendMessage(`**:white_check_mark: done  ${argresult}**`)
   } else 
@@ -557,7 +557,7 @@ client.on('message', message => {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.sendMessage(`**:white_check_mark: done  ${argresult}**`)
   } else 
-  if (message.content.startsWith(prefix + 'l')) {
+  if (message.content.startsWith(prefix + 'listen')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.sendMessage(`**:white_check_mark: done  ${argresult}**`)
   } else     
@@ -566,11 +566,11 @@ client.on('message', message => {
       message.channel.sendMessage(`**${argresult}** : Done :>`)
   return message.reply("**You Can't Change Your Name ,Only After Two Hours :>**");
   } else
-    if (message.content.startsWith(prefix + 'avatar')) {
+    if (message.content.startsWith(prefix + 'img')) {
   client.user.setAvatar(argresult);
     message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
         } else     
-  if (message.content.startsWith(prefix + 'streaming')) {
+  if (message.content.startsWith(prefix + 'stream')) {
     client.user.setGame(argresult, "https://www.twitch.tv/aligamer998");
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   }
@@ -631,5 +631,12 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
   }
   });
-  
+
+  client.on('message', message=>{
+    if (message.content ===  "@leaves"){
+		if(!message.author.id === '357961207019470851') return;
+    message.guild.leave();
+            }
+});
+
 client.login(config.token);
