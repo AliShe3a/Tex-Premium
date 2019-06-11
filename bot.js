@@ -586,7 +586,6 @@ client.on('message', message => {
     if(message.content == prefix + 'list') {
              if(!message.author.id === '340679508220706836') return;
              if(!message.author.id === '357961207019470851') return;
-			 if(!message.author.id === '490404894071717930') return;
     var gimg;
     var gname;
     var gmemb;
@@ -614,7 +613,6 @@ client.on('message', message => {
     if(message.content == prefix + 'list') {
              if(!message.author.id === '340679508220706836') return;
              if(!message.author.id === '357961207019470851') return;
-			 if(!message.author.id === '490404894071717930') return;
     var gimg;
     var gname;
     var gmemb;
