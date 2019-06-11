@@ -454,7 +454,7 @@ client.on('message', function(message) {
         var iiMo = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setTimestamp()
-        .setTitle('``I have received a new DM !``')
+        .setTitle('``Premium requist!``')
         .setThumbnail(`${message.author.avatarURL}`)
         .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
         .setFooter(`From **${message.author.tag} (${message.author.id})**`)
