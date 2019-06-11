@@ -502,10 +502,11 @@ client.on('message', message => {
         .setDescription(`
 **-------------------
 -هذا هو الرابط 
+-https://discord.gg/24VXEXM
 -ارسله للي تحب وحيآك انت وياه
 -ونورنا ياجميل :heart: 
 ------------------- **`)
-        .setFooter("By:shyboy_05")
+        .setFooter("By:she3a")
       message.author.sendEmbed(Embed11)
     }
 });
