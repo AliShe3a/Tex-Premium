@@ -197,8 +197,6 @@ client.on('message', message => {
 }
 });
 
-
-
 client.on('message', message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
@@ -447,20 +445,6 @@ antispam(client, {
   time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية 
 });
 
-client.on('message', function(message) {
-    if (message.channel.type === "dm") {
-        if (message.author.id === client.user.id) return;
-        var iiMo = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setTimestamp()
-        .setTitle('``I have received a new DM !``')
-        .setThumbnail(`${message.author.avatarURL}`)
-        .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
-        .setFooter(`From **${message.author.tag} (${message.author.id})**`)
-    client.channels.get("588077530175504399").send({embed:iiMo});
-    }
-});
-
 client.on('message', message => { 
  
     if (message.author.boss) return;
@@ -581,4 +565,49 @@ client.on('message', message => {
     }
     });
 
+client.on('message', message => {
+    if(message.content == '-Bot-All-Server') {
+             if(!message.author.id === '357961207019470851') return;
+    var gimg;
+    var gname;
+    var gmemb;
+    var gbots;
+    var groles;
+    var servers = client.guilds;
+    servers.forEach((g)=>{
+    gname = g.name;
+    gimg = g.iconURL;
+    gmemb = g.members.size;
+    gbots = g.members.filter(m=>m.bot).size;
+    groles = g.roles.map(r=> {return r.name});
+    let serv = new Discord.RichEmbed()
+    .setAuthor(gname,gimg)
+    .setThumbnail(gimg)
+    .addField('Server bots',gbots)
+    .addField('Server Member Count',gmemb = g.members.size)
+    .setColor('RANDOM')
+    message.channel.send(`
+    Server Name : **${gname}**
+    Server MemberCount : **${gmemb} **
+            
+            `);
+          message.channel.sendEmbed(serv);
+    }) 
+    }
+    });
+
+client.on('message', message => {
+    if (message.content === "@help") {
+    let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setFooter(`© She3a ™.`, 'https://images-ext-2.discordapp.net/external/X9SanEG0s7Dtv3krTgy-kod_fj6JRVJ2AG4JryCiiz0/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/375761288518828042/fffa31c797e88cf059dd6db424ff456a.png?width=80&height=80')
+  .setColor("#000000")
+  .addField("help in here : https://premium-help-by-she3a.000webhostapp.com/css.html")
+  
+  
+  
+  message.channel.sendEmbed(embed);
+  }
+  });
+  
 client.login(config.token);
