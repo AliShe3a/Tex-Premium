@@ -536,37 +536,59 @@ client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","member"));
     });
 
-client.on('message', message => {
-    var prefix = "@";
-      if (!message.content.startsWith(prefix)) return;
-      var args = message.content.split(' ').slice(1);
-      var argresult = args.join(' ');
-      if (message.author.id == "357961207019470851") return;
-    
-    if (message.content.startsWith(prefix + 'playing')) {
-      client.user.setGame(argresult);
-        message.channel.sendMessage(`**${argresult}** : Status changed`)
-    } else
-    
-    if (message.content.startsWith(prefix + 'Stream')) {
-      client.user.setGame(argresult, "https://www.twitch.tv/ChampionBot");
-        message.channel.sendMessage(`**${argresult}** :The bot stream has been changed`)
-    } else
-    
-    if (message.content.startsWith(prefix + 'name')) {
-      client.user.setUsername(argresult).then
-          message.channel.sendMessage(`**${argresult}** : Name changed`)
-      return message.reply("**You**");
-    } else
-    if (message.content.startsWith(prefix + 'image')) {
-      client.user.setAvatar(argresult);
-        message.channel.sendMessage(`**${argresult}** : The bot image has been changed`);
-    
-    }
-    });
+const RichEmbed = require("discord.js");
+
+const { Client, Util } = require('discord.js');
+
+const devs = ["357961207019470851"]
 
 client.on('message', message => {
-    if(message.content == '-Bot-All-Server') {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(prefix + 'playing')) {
+    client.user.setGame(argresult);
+      message.channel.sendMessage(`**:white_check_mark: done  ${argresult}**`)
+  } else 
+    if (message.content === (prefix + "Per")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(prefix + 'watch')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.sendMessage(`**:white_check_mark: done  ${argresult}**`)
+  } else 
+  if (message.content.startsWith(prefix + 'l')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.sendMessage(`**:white_check_mark: done  ${argresult}**`)
+  } else     
+    if (message.content.startsWith(prefix + 'name')) {
+  client.user.setUsername(argresult).then
+      message.channel.sendMessage(`**${argresult}** : Done :>`)
+  return message.reply("**You Can't Change Your Name ,Only After Two Hours :>**");
+  } else
+    if (message.content.startsWith(prefix + 'avatar')) {
+  client.user.setAvatar(argresult);
+    message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+        } else     
+  if (message.content.startsWith(prefix + 'streaming')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/aligamer998");
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  }
+    if(message.content === prefix + "restart") {
+      if (!devs.includes(message.author.id)) return;
+          message.channel.send(`:warning:️ **Bot restarting by ${message.author.username}**`);
+        console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        console.log(`⚠️ Bot restarting... ⚠️`);
+        console.log("===============================================\n\n");
+        client.destroy();
+        child_process.fork(__dirname + "/bot.js");
+        console.log(`Bot Successfully Restarted`);
+    }
+  
+  });
+
+client.on('message', message => {
+    if(message.content == '@allserver') {
              if(!message.author.id === '357961207019470851') return;
     var gimg;
     var gname;
