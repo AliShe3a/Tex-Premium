@@ -2,8 +2,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const enmap = require('enmap');
-const { Pool } = require("better-sqlite-pool");
 const prefix = "@"
 const config = require('./config.json');
 client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
@@ -776,36 +774,7 @@ client.on('ready', () => {// افنت التشغيل
   }, 60000);// وقت الريمبو لا تغيرة لانه الوقت المسموح للتغيير
 })
 
-client.antibots = new enmap({name: "antibot"});
-var antibots = client.antibots;
-var julian = client;
-julian.on("message", codes => {
-if(codes.content.startsWith(prefix + "antibots on")){
-if(codes.author.bot || !codes.channel.guild || codes.author.id != codes.guild.ownerID) return;
-antibots.set(`${codes.guild.id}`, {
-onoff: 'On'
-});
 
-
-codes.channel.send("AntiBots Join Is On");
-}
-if(codes.content.startsWith(prefix + "antibots off")){
-if(codes.author.bot || !codes.channel.guild || codes.author.id != codes.guild.ownerID) return;
-antibots.set(`${codes.guild.id}`, {
-onoff: "Off"
-});
-codes.channel.send("AntiBots Join Is Off");
-}
-});
-
-julian.on("guildMemberAdd", member => {
-if(!antibots.get(`${member.guild.id}`)) { antibots.set(`${member.guild.id}`, {
-onoff: "Off"
-});
-}
-if(antibots.get(`${member.guild.id}`).onoff == "Off") return;
-if(member.user.bot) return member.kick()
-});
 
 const ytScraper = require("yt-scraper");
 const getAccountStats = require('twitter-scrape-account-stats').getAccountStats;
