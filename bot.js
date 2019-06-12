@@ -3,41 +3,9 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
 const enmap = require('enmap');
+const { Pool } = require("better-sqlite-pool");
 const prefix = "@"
 const config = require('./config.json');
-const account = JSON.parse(fs.readFileSync('./account.json', 'utf8')); // create " account.json " folder and put into it " {} "
-
-client.on('message', async message => {
-    if (!message.guild) return;
-    if (!account[message.author.id]) {
-        account[message.author.id] = {
-            reg: false,
-            name: 'nothing'
-        };
-    }
-    if (message.content === `${prefix}register`) {
-        if (account[message.author.id].reg === true) return message.channel.send('❌ | لديك حساب مٌسجل بالفعل...');
-        if (message.author.bot) return;
-        const args = message.content.split(' ').slice(1);
-        if (!args[0]) return message.channel.send('❌ | أدخل إسم للتسجيل به.');
-        if (args[0]) {
-            account[message.author.id].reg = true;
-            account[message.author.id].name = args;
-            await saveChanges();
-            message.channel.send('You have registred your account !');
-        }
-    } else if (message.content === `${prefix}pingo`) { // Example on usage | مثال على الأوامر :
-        if (account[message.author.id].reg === false) return message.channel.send('❌ | يجب أن تكون مٌسجل لإستخدام هذا الأمر');
-        message.channel.send('PONG');
-    }
-});
-
-function saveChanges() {
-    return fs.writeFile('./account.json', JSON.stringify(account), error => {
-        if (error) console.log(error);
-    });
-}
-
 client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
 
 client.on('message', message => {
@@ -839,6 +807,20 @@ if(antibots.get(`${member.guild.id}`).onoff == "Off") return;
 if(member.user.bot) return member.kick()
 });
 
-
+const ytScraper = require("yt-scraper");
+const getAccountStats = require('twitter-scrape-account-stats').getAccountStats;
+const bud = require('basic-instagram-user-details');
+client.on("ready", () => {
+  ytScraper.channelInfo("https://www.youtube.com/channel/UCfSicg9mxc_TCaaROMklU_A").then(data => {
+  client.channels.get("588282861107281930").setName(`~ YT Subs : ${data.subscribers}`)
+  })
+  getAccountStats({username: 'TWITTER USERNAME'}).then(function(account) {
+  client.channels.get("CHANNEL ID").setName(`~ Twitter followers : ${account.followers}`)
+  })
+  bud("INSTAGRAM ACCOUNT USERNAME", 'followers').then(res => {
+  const ifollowers = res.data;
+  client.channels.get("CHANNEL ID").setName(`~ Insta followers : ${ifollowers}`)
+  });
+});
 
 client.login(config.token);
