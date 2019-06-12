@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const Enmap = require('enmap');
+const enmap = require('enmap');
 const prefix = "@"
 const config = require('./config.json');
 const account = JSON.parse(fs.readFileSync('./account.json', 'utf8')); // create " account.json " folder and put into it " {} "
