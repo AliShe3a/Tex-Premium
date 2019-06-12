@@ -17,6 +17,7 @@
 	  "simple-youtube-api": "5.2.0",
 	  "ytdl-core": "0.29.2",
 	  "gif-search": "2.1.0",
+"better-sqlite-pool": "0.2.2"
 "enmap": "4.8.7",
 "basic-instagram-user-details": "1.0.2",
 "twitter-scrape-account-stats": "0.2.1",
