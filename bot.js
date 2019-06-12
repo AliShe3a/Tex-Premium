@@ -718,7 +718,7 @@ let Room = client.channels.get('588254239827034112');
  
 if(message.content.startsWith(prefix + "رفض")) {
  
-if(message.guild.id !== '357961207019470851') return;
+if(message.guild.id !== '584735012390436874') return;
  
  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
  
@@ -745,7 +745,7 @@ let Room = client.channels.get('588254239827034112');
  
 if(message.content.startsWith(prefix + "قبول")) {
  
-if(message.guild.id !== '357961207019470851') return;
+if(message.guild.id !== '584735012390436874') return;
  
  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
  
