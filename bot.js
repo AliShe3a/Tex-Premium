@@ -5,7 +5,6 @@ const fs = require('fs');
 const Enmap = require('enmap');
 const ytScraper = require("yt-scraper")
 const prefix = "@"
-const config = require('./config.json');
 
 client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
 
@@ -966,7 +965,7 @@ client.on('message', message => {
 
 });
 
-var config1 = {
+var config = {
   events: [
     {type: "CHANNEL_CREATE", logType: "CHANNEL_CREATE", limit: 4 , delay: 5000},
     {type: "CHANNEL_DELETE", logType: "CHANNEL_DELETE", limit: 4, delay: 5000},
@@ -983,7 +982,7 @@ client.on("raw", (packet)=> {
     client.startedTimestamp = new Date().getTime();
     client.captures = [];
   }
-  let event = config1.events.find(anEvent => anEvent.type === type);
+  let event = config.events.find(anEvent => anEvent.type === type);
   if (!event) return;
   let guild = client.guilds.get(guild_id);
   if (!guild) return;
@@ -1023,4 +1022,4 @@ client.on("reachLimit", (limit)=> {
 });
 
 
-client.login(config.token);
+client.login("NTg3NTk1MDc3Njk0NzgzNDg4.XP43Zg.rDI7D-W3OG_YAjIv5cQiog6MBBk");
