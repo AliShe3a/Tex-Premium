@@ -22,6 +22,7 @@
 "basic-instagram-user-details": "1.0.2",
 "twitter-scrape-account-stats": "0.2.1",
 "yt-scraper": "1.1.0",
+"chalk": "^2.4.2",
   "request": "^2.85.0"
   },
   "engines": {
