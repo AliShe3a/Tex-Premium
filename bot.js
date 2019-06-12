@@ -797,7 +797,6 @@ client.antibots = new Enmap({name: "antibot"});
 var antibots = client.antibots;
 var julian = client;
 julian.on("message", codes => {
-var prefix = "-";
 if(codes.content.startsWith(prefix + "antibots on")){
 if(codes.author.bot || !codes.channel.guild || codes.author.id != codes.guild.ownerID) return;
 antibots.set(`${codes.guild.id}`, {
