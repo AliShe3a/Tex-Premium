@@ -6,38 +6,6 @@ const Enmap = require('enmap');
 const ytScraper = require("yt-scraper")
 const prefix = "@"
 const config = require('./config.json');
-const account = JSON.parse(fs.readFileSync('./account.json', 'utf8')); // create " account.json " folder and put into it " {} "
-
-client.on('message', async message => {
-    if (!message.guild) return;
-    if (!account[message.author.id]) {
-        account[message.author.id] = {
-            reg: false,
-            name: 'nothing'
-        };
-    }
-    if (message.content === `${prefix}register`) {
-        if (account[message.author.id].reg === true) return message.channel.send('❌ | لديك حساب مٌسجل بالفعل...');
-        if (message.author.bot) return;
-        const args = message.content.split(' ').slice(prefix.length);
-        if (!args[0]) return message.channel.send('❌ | أدخل إسم للتسجيل به.');
-        if (args[0]) {
-            account[message.author.id].reg = true;
-            account[message.author.id].name = args;
-            await saveChanges();
-            message.channel.send('تم تسجيل الحساب !!');
-        }
-    } else if (message.content === `${prefix}pingg`) {
-        if (account[message.author.id].reg === false) return message.channel.send('❌ | يجب أن تكون مٌسجل لإستخدام هذا الأمر');
-        message.channel.send('PONG');
-    }
-});
-
-function saveChanges() {
-    return fs.writeFile('./account.json', JSON.stringify(account), error => {
-        if (error) console.log(error);
-    });
-}
 
 client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
 
@@ -856,5 +824,284 @@ onoff: "Off"
 if(antibots.get(`${member.guild.id}`).onoff == "Off") return;
 if(member.user.bot) return member.kick()
 });
+
+let spread = JSON.parse(fs.readFileSync('./spread.json' , 'utf8'));
+
+
+client.on('message', message => {
+    if(message.content.startsWith(prefix + "antispread off")) {
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+spread[message.guild.id] = {
+onoff: 'Off',
+}
+message.channel.send(`**⛔ The AntiSpread Is __𝐎𝐅𝐅__ !**`)
+          fs.writeFile("./spread.json", JSON.stringify(spread), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+
+        })
+        client.on('message', message => {
+    if(message.content.startsWith(prefix + "antispread on")) {
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+spread[message.guild.id] = {
+onoff: 'On',
+}
+message.channel.send(`**✅ The AntiSpread Is __𝐎𝐍__ !**`)
+          fs.writeFile("./spread.json", JSON.stringify(spread), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+
+        })
+    client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('http://www.gmail.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+});
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.snapchat.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+});
+
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.instagram.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+});
+
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.twitter.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+});
+
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('http://www.facebook.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+});
+
+
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.youtube.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+
+});
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.discordapp.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+
+});
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://discord.gg/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+
+});
+
+
+//const fs = require('fs');
+
+
+
+const verifyj = JSON.parse(fs.readFileSync("./verify.json", "utf8"))
+
+client.on('message', async message => {
+    let messageArray = message.content.split(" ");
+   if(message.content === `${prefix}setcaptcha`) {
+        
+    let filter = m => m.author.id === message.author.id;
+    let ch;
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send('You don\'t have permission').then(msg => {
+       msg.delete(4500);
+       message.delete(4500);
+    });
+    
+    message.channel.send(':pencil: **| Now type the verify channel name... :pencil2: **').then(msg => {
+
+        message.channel.awaitMessages(filter, {
+          max: 1,
+          time: 90000,
+          errors: ['time']
+        })
+        .then(collected => {
+            collected.first().delete();
+            ch = collected.first().content;
+            let chf = message.guild.channels.find('name', `${ch}`)
+            if(!chf) return msg.edit(':x: **| Wrong Channel Name (Type The Command Again) .**') && console.log('cant find this channel')
+            let rr;
+            msg.edit(':scroll: **| Please type verified role name.... :pencil2: **').then(msg => {
+      
+                message.channel.awaitMessages(filter, {
+                  max: 1,
+                  time: 90000,
+                  errors: ['time']
+                })
+                .then(collected => {
+                    collected.first().delete();
+                    rr = collected.first().content;
+                    let rf = message.guild.roles.find('name', `${rr}`)
+                    if(!rf) return msg.edit(':x: **| Wrong Role Name (Type The Command Again)**') && console.log('cant find this role')
+                    msg.edit('✅ **| Done successfully..  **').then(msg => {
+        
+                      message.channel.awaitMessages(filter, {
+                        max: 1,
+                        time: 90000,
+                        errors: ['time']
+                      })
+                      let embed = new Discord.RichEmbed()
+                      .setTitle('**Done The Captcha Has Been Setup**')
+                      .addField('Captcha Channel:', `${ch}`)
+                      .addField('Verfied Role:', `${rr}`)
+                      .setThumbnail(message.author.avatarURL)
+                      .setFooter(`${client.user.username}`)
+                     message.channel.sendEmbed(embed)
+    verifyj[message.guild.id] = {
+        channel: ch,
+        rolev: rr,
+        onoff: 'On'
+    }
+    fs.writeFile("./verify.json", JSON.stringify(verifyj), (err) => {
+    if (err) console.error(err)
+  })
+   } 
+            )
+        })
+    })
+})
+    })
+}})             
+
+client.on('message', async message => {
+
+if(message.content == `${prefix}captcha off`) {
+    if(!verifyj[message.guild.id]) verifyj[message.guild.id] = {
+        channel: "Undefined",
+        onoff: "Off",
+        rolev: "Undefined"
+    }
+    if(verifyj[message.guild.id].onoff === "Off") return message.channel.send('Already Turned Off !')
+verifyj[message.guild.id].onoff = "off"
+message.channel.send(':white_check_mark: | Successfully turned off')
+fs.writeFile("./verify.json", JSON.stringify(verifyj), (err) => {
+    if (err) console.error(err)
+  })
+}
+})
+
+
+client.on('message', async message => {
+    if(message.author.bot) return;
+    if(!message.channel.type === 'dm') return;
+let rf = message.guild.roles.find('name', `${verifyj[message.guild.id].rolev}`)
+ let mem = message.guild.member(message.author)
+    if(message.content.startsWith(prefix + 'captcha')) {
+        if(!verifyj[message.guild.id]) verifyj[message.guild.id] = {
+            channel: "Undefined",
+            onoff: "Off",
+            rolev: "Undefined"
+        }
+        if(verifyj[message.guild.id].onoff === "Off") return console.log('the command is turned off')
+    if(message.channel.name !== verifyj[message.guild.id].channel) return console.log('wrong channel')
+      if(mem.roles.has(rf.id)) return message.channel.send(':x: | You Are Already Verfied !')
+  const type = require('./verifycodes.json');
+  const item = type[Math.floor(Math.random() * type.length)];
+  const filter = response => {
+      return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+  };
+    const embed = new Discord.RichEmbed()
+    .setTitle('**You Should Write The Captcha Code In 15 Seconds**')
+    .setColor("RANDOM")
+    .setImage(`${item.type}`)
+     .setFooter('Requested By' + message.author.tag)
+    message.channel.sendEmbed(embed).then(() => {
+              message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+      .then((collected) => { 
+        message.author.send(`**${collected.first().author} successfully you got verfied role :white_check_mark:**`);
+      message.channel.send(`**${collected.first().author} successfully you got verfied role :white_check_mark:**`);
+                console.log(`[Typing] ${collected.first().author} verfied himself ! .`);
+        message.guild.member(collected.first().author).addRole(rf)
+        })
+                  .catch(collected => {
+                  message.author.send('Timeout !')
+                              console.log('[Typing] Error: No one type the captcha code.');
+                  console.log(collected)
+
+                })
+    
+    fs.writeFile("./verify.json", JSON.stringify(verifyj), (err) => {
+        if (err) console.error(err)
+      })
+    })
+}})                           
+
+
 
 client.login(config.token);
