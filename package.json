@@ -18,6 +18,7 @@
 	  "ytdl-core": "0.29.2",
 	  "gif-search": "2.1.0",
 "enmap": "4.8.7",
+"yt-scraper": "1.1.0",
   "request": "^2.85.0"
   },
   "engines": {
