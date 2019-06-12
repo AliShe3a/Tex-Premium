@@ -654,7 +654,7 @@ client.on('message', async rokz => {
           col.first().delete();
  
  
-            e.edit(`هتسعدنا في ايه ؟
+            e.edit(`دليل انك مو نصاب ؟
 [${time}]
 [${lang}]`)
  
@@ -672,7 +672,7 @@ client.on('message', async rokz => {
 [${time}]
 [${lang}]`)
  
-              let rokzz = rokz.guild.channels.find("name","✵》التقديمات")
+              let rokzz = rokz.guild.channels.find("name","✽-تقديمات")
  
               setTimeout(() => {
  
@@ -683,7 +683,7 @@ client.on('message', async rokz => {
               rokzz.send(`
 » االاسم : **${lang}**
 » العمر : **${time}**
-» الي بيبيعه : **${expe}**
+» الدليل انه مو نصاب : **${expe}**
 تم التقديم بواسطة: ${rokz.author}
 `).then(rokzzz => {
  
@@ -714,11 +714,11 @@ client.on('message',async message => {
  
 let mention = message.mentions.members.first();
  
-let Room = client.channels.get('588239109840044032');
+let Room = client.channels.get('588254239827034112');
  
 if(message.content.startsWith(prefix + "رفض")) {
  
-if(message.guild.id !== '588239109840044032') return;
+if(message.guild.id !== '357961207019470851') return;
  
  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
  
@@ -729,7 +729,7 @@ if(!mention) return message.reply("منشن شخص");
  
 Room.send(`
 **» العضو :** ${mention}
-[ :x: ] :: لقد تم رفض العضو`);
+[ :x: ] :: لقد تم رفض البوت`);
  
 }
  
@@ -741,11 +741,11 @@ client.on('message',async message => {
  
 let mention = message.mentions.members.first();
  
-let Room = client.channels.get('588239109840044032');
+let Room = client.channels.get('588254239827034112');
  
 if(message.content.startsWith(prefix + "قبول")) {
  
-if(message.guild.id !== '588239109840044032') return;
+if(message.guild.id !== '357961207019470851') return;
  
  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
  
@@ -756,7 +756,7 @@ if(!mention) return message.reply("منشن شخص");
  
 Room.send(`
 **» العضو :** ${mention}
-[ :white_check_mark: ] :: لقد  تم قبول العضو `);
+[ :white_check_mark: ] :: لقد تم قبول البوت `);
  
 }
  
