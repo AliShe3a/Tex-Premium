@@ -2,6 +2,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
+const ytScraper = require("yt-scraper")
 const prefix = "@"
 const config = require('./config.json');
 client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
@@ -776,11 +777,10 @@ client.on('ready', () => {// افنت التشغيل
 
 
 
-const ytscraper = require("yt-scraper");
 const getAccountStats = require('twitter-scrape-account-stats').getAccountStats;
 const bud = require('basic-instagram-user-details');
 client.on("ready", () => {
-  ytscraper.channelInfo("https://www.youtube.com/channel/UCfSicg9mxc_TCaaROMklU_A").then(data => {
+  ytScraper.channelInfo("https://www.youtube.com/channel/UCfSicg9mxc_TCaaROMklU_A").then(data => {
   client.channels.get("588282861107281930").setName(`~ YT Subs : ${data.subscribers}`)
   })
   getAccountStats({username: 'TWITTER USERNAME'}).then(function(account) {
