@@ -654,7 +654,7 @@ client.on('message', async rokz => {
           col.first().delete();
  
  
-            e.edit(`دليل انك مو نصاب ؟
+            e.edit(`هدسعدنا في ايه و ازاي ؟
 [${time}]
 [${lang}]`)
  
@@ -718,7 +718,7 @@ let Room = client.channels.get('588254239827034112');
  
 if(message.content.startsWith(prefix + "رفض")) {
  
-if(message.guild.id !== '588254239827034112') return;
+if(message.guild.id !== '584735012390436874') return;
  
  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
  
@@ -745,7 +745,7 @@ let Room = client.channels.get('588254239827034112');
  
 if(message.content.startsWith(prefix + "قبول")) {
  
-if(message.guild.id !== '588254239827034112') return;
+if(message.guild.id !== '584735012390436874') return;
  
  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
  
@@ -756,7 +756,7 @@ if(!mention) return message.reply("منشن شخص");
  
 Room.send(`
 **» العضو :** ${mention}
-[ :white_check_mark: ] :: لقد تم قبول البوت `);
+[ :white_check_mark: ] :: لقد تم قبول البوت او الشخص `);
  
 }
  
