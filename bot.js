@@ -2,6 +2,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
+const Enmap = require('enmap');
 const prefix = "@"
 const config = require('./config.json');
 const account = JSON.parse(fs.readFileSync('./account.json', 'utf8')); // create " account.json " folder and put into it " {} "
@@ -25,7 +26,7 @@ client.on('message', async message => {
             await saveChanges();
             message.channel.send('You have registred your account !');
         }
-    } else if (message.content === `${prefix}ping`) { // Example on usage | مثال على الأوامر :
+    } else if (message.content === `${prefix}pingo`) { // Example on usage | مثال على الأوامر :
         if (account[message.author.id].reg === false) return message.channel.send('❌ | يجب أن تكون مٌسجل لإستخدام هذا الأمر');
         message.channel.send('PONG');
     }
@@ -807,8 +808,7 @@ client.on('ready', () => {// افنت التشغيل
   }, 60000);// وقت الريمبو لا تغيرة لانه الوقت المسموح للتغيير
 })
 
-﻿var Enmap = require('enmap');
-client.antibots = new Enmap({name: "antibot"});
+client.antibots = new enmap({name: "antibot"});
 var antibots = client.antibots;
 var julian = client;
 julian.on("message", codes => {
