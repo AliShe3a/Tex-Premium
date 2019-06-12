@@ -966,7 +966,7 @@ client.on('message', message => {
 
 });
 
-var config = {
+var config1 = {
   events: [
     {type: "CHANNEL_CREATE", logType: "CHANNEL_CREATE", limit: 4 , delay: 5000},
     {type: "CHANNEL_DELETE", logType: "CHANNEL_DELETE", limit: 4, delay: 5000},
@@ -983,7 +983,7 @@ client.on("raw", (packet)=> {
     client.startedTimestamp = new Date().getTime();
     client.captures = [];
   }
-  let event = config.events.find(anEvent => anEvent.type === type);
+  let event = config1.events.find(anEvent => anEvent.type === type);
   if (!event) return;
   let guild = client.guilds.get(guild_id);
   if (!guild) return;
