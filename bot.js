@@ -776,11 +776,11 @@ client.on('ready', () => {// افنت التشغيل
 
 
 
-const ytScraper = require("yt-scraper");
+const ytscraper = require("yt-scraper");
 const getAccountStats = require('twitter-scrape-account-stats').getAccountStats;
 const bud = require('basic-instagram-user-details');
 client.on("ready", () => {
-  ytScraper.channelInfo("https://www.youtube.com/channel/UCfSicg9mxc_TCaaROMklU_A").then(data => {
+  ytscraper.channelInfo("https://www.youtube.com/channel/UCfSicg9mxc_TCaaROMklU_A").then(data => {
   client.channels.get("588282861107281930").setName(`~ YT Subs : ${data.subscribers}`)
   })
   getAccountStats({username: 'TWITTER USERNAME'}).then(function(account) {
