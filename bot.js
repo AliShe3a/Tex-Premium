@@ -802,7 +802,6 @@ const gif = require("gif-search");
 ////////////////////////
 //////////////////////
 client.on('message', async msg => { 
-    if(!message.author.id === '357961207019470851') return;
 	if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(prefix)) return undefined;
     
