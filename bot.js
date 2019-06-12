@@ -654,7 +654,7 @@ client.on('message', async rokz => {
           col.first().delete();
  
  
-            e.edit(`ايش راح تبيع ؟
+            e.edit(`هتسعدنا في ايه ؟
 [${time}]
 [${lang}]`)
  
@@ -714,7 +714,7 @@ client.on('message',async message => {
  
 let mention = message.mentions.members.first();
  
-let Room = client.channels.get('588239109840044032');
+let Room = client.channels.get('588254239827034112');
  
 if(message.content.startsWith(prefix + "رفض")) {
  
@@ -741,7 +741,7 @@ client.on('message',async message => {
  
 let mention = message.mentions.members.first();
  
-let Room = client.channels.get('588239109840044032');
+let Room = client.channels.get('588254239827034112');
  
 if(message.content.startsWith(prefix + "قبول")) {
  
