@@ -756,7 +756,7 @@ if(!mention) return message.reply("منشن شخص");
  
 Room.send(`
 **» العضو :** ${mention}
-[ :white_check_mark: ] :: لقد تم قبول العضو `);
+[ :white_check_mark: ] :: لقد  تم قبول العضو `);
  
 }
  
