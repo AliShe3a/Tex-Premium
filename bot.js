@@ -11,7 +11,7 @@ client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
 
 const { RichEmbed, Collection } = require('discord.js');
 const chalk = require('chalk');
-const hero = new Client();
+const hero = new client();
 const auth = require('./auth.json');
 
 hero.commands = new Collection();
