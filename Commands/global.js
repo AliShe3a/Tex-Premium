@@ -1,4 +1,4 @@
-const auth = require('./auth.json');
+const auth = require('../auth.json');
 exports.run = async (hero, message, args, RichEmbed, emojis) => {
   if(!auth.admins.includes(message.author.id)) return message.channel.send(new RichEmbed()
     .setColor("#343A40")
