@@ -1,5 +1,5 @@
 exports.run = async (hero, message, args, RichEmbed, emojis) => { 
-    if(hero.commands.get('ping').help.working === false) return message.channel.send(new RichEmbed()
+    if(hero.commands.get('bping').help.working === false) return message.channel.send(new RichEmbed()
     .setColor("#343A40")
     .setDescription(`${emojis.warn} - **This command is currently not working, message an admin to return it back.**`));
     message.channel.send(new RichEmbed()
