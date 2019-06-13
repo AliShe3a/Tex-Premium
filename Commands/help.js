@@ -2,7 +2,7 @@ const auth = require('../auth.json');
 const fs = require('fs');
 const wait = require('util').promisify(setTimeout);
 exports.run = async (hero, message, args, RichEmbed, emojis) => {
-    if(hero.commands.get('help').help.working === false) return message.channel.send(new RichEmbed()
+    if(hero.commands.get('bhelp').help.working === false) return message.channel.send(new RichEmbed()
     .setColor("#343A40")
     .setDescription(`${emojis.warn} - **This command is currently not working, message an admin to return it back.**`));
     if(!args[0]) {
