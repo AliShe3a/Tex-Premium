@@ -9,18 +9,31 @@ const prefix = "@"
 
 client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
 
-client.on("message", message => {
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
 
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {//copyright tex
- m.send(`${argresult}\n ${m}`);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
- message.delete(); 
-};     
+client.on('message', message => {
+    
+    let args = message.content.split(' ').slice(1).join(' ');
+    
+  if (message.content === 'ping') {
+      message.channel.send(`<@${message.author.id}> Ping..!`)
+  }
+  
+  
+  if (message.content.startsWith('$bc')) {
+          if (!args[0]) {
+message.channel.send("**$bc <message>**");
+return;
+}
+message.guild.members.forEach(m => {
+   if(!message.member.hasPermission('ADMINISTRATOR')) return;
+   m.send(`${args}`);
+
+});
+  }
+ 
 });
 
 client.on('message', message => {
