@@ -1,4 +1,4 @@
-const auth = require('./auth.json');
+const auth = require('../auth.json');
 const fs = require('fs');
 const wait = require('util').promisify(setTimeout);
 exports.run = async (hero, message, args, RichEmbed, emojis) => {
