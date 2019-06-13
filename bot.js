@@ -9,9 +9,9 @@ const prefix = "@"
 
 client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
 
-const { RichEmbed, Collection } = require('discord.js');
+const { Client, RichEmbed, Collection } = require('discord.js');
 const chalk = require('chalk');
-const hero = new client();
+const hero = new Client();
 const auth = require('./auth.json');
 
 hero.commands = new Collection();
