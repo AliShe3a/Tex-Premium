@@ -9,31 +9,16 @@ const prefix = "@"
 
 client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
 client.on('message', message => {
-    
-    let args = message.content.split(' ').slice(1).join(' ');
-    
-  if (message.content === 'ping') {
-      message.channel.send(`<@${message.author.id}> Ping..!`)
-  }
-  
-  
-  if (message.content.startsWith('@bc')) {
-          if (!args[0]) {
-message.channel.send("**@bc <message>**");
-return;
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('-bc-users')){
+if(!message.author.id === '357961207019470851') return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
 }
-message.guild.members.forEach(m => {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return;
-   m.send(`${args}`);
-
-});
-  }
- 
 });
 
 client.on('message', message => {
