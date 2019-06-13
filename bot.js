@@ -500,7 +500,6 @@ client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","member"));
     });
 
-const RichEmbed = require("discord.js");
 
 const { Client, Util } = require('discord.js');
 
