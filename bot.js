@@ -1,14 +1,15 @@
     
 const Discord = require('discord.js');
 const fs = require('fs');
-const { Client, Util } = require('discord.js');
+const client = new Discord.Client();
+const { Util } = require('discord.js');
 const Enmap = require('enmap');
 const ytScraper = require("yt-scraper")
 const prefix = "@"
 
 client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
 
-const { Client, RichEmbed, Collection } = require('discord.js');
+const { RichEmbed, Collection } = require('discord.js');
 const chalk = require('chalk');
 const hero = new Client();
 const auth = require('./auth.json');
