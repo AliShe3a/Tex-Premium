@@ -152,11 +152,11 @@ client.on('message', message => {
   })
 }
 });
-
+//by she3a
 client.on('message', message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
-
+//by she3a //by she3a
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
@@ -177,7 +177,7 @@ client.on('message', message => {
   .kickable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
 
   message.guild.member(user).kick();
-
+//by she3a
   const kickembed = new Discord.RichEmbed()
   .setAuthor(`KICKED!`, user.displayAvatarURL)
   .setColor("RANDOM")
@@ -190,7 +190,7 @@ client.on('message', message => {
   })
 }
 });
-
+//by she3a
 client.on('message', message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
@@ -210,7 +210,7 @@ if (command == "say") {
 
 
 });
-
+//by she3a
 client.on("message", message => {
     var args = message.content.substring(prefix.length).split(" ");
     if (message.content.startsWith(prefix + "clear")) {
@@ -231,7 +231,7 @@ footer: {
 });
 
 client.on("message", message => {
-    if (message.author.bot) return;
+    if (message.author.bot) return;   //by she3a
     
     let command = message.content.split(" ")[0];
     
@@ -958,5 +958,20 @@ client.on('message', message => {
 message.channel.sendEmbed(embed);
    }
 });
+
+client.on("message", message => {  //by she3a
+    if(message.content.startsWith(prefix + "emoji")) { //by she3a
+        if(message.author.bot) return; //iTzMurtaja
+        var emojiid =  message.content.split(" ").slice(1).join(" ") //by she3a
+        console.log(emojiid) //by she3a
+        if(emojiid.length < "18" || emojiid.length > "18" || isNaN(emojiid)) return  message.channel.send(`- Usage
+${prefix}emoji <EmojiID>`); //by she3a
+        else    //iTzMurtaja
+        message.channel.send("This is the emoji that you requested:-",
+          { //by she3a
+            files: [`https://cdn.discordapp.com/emojis/${emojiid}.png`]
+          }) //by she3a
+        }  //by she3a
+}) //by she3a
 
 client.login("NTg3NTk1MDc3Njk0NzgzNDg4.XP43Zg.rDI7D-W3OG_YAjIv5cQiog6MBBk");
