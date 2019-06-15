@@ -435,11 +435,6 @@ client.on('message', message => {
   }
 });
 
-client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","member"));
-    });
-
-
 const devs = ["357961207019470851"]
 
 client.on('message', message => {
