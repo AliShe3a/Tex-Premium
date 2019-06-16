@@ -974,22 +974,17 @@ ${prefix}emoji <EmojiID>`); //by she3a
         }  //by she3a
 }) //by she3a
 
-client.on("message", msg  => {
-    if (`msg == ${prefix}check`) {
-        let guild = client.guilds.find(g => g.ownerID == msg.author.id)//she3a
-        if(!guild) return msg.channel.send("❌ No guilds for you, Try again.")//she3a
-        msg.channel.send("🎉 Congratulations, you get a role.")//she3a
-        client.guilds.get("584735012390436874").member(msg.author.id).addRole(client.guilds.get("584735012390436874").roles.get("588796145208393729"));
-    }
-});//she3a
+client.on('guildCreate', guild => {
+  let support = client.guilds.get('584735012390436874') // حط هنا ايدي سيرفر السبورت
+  if(support === undefined) return
+  let role = support.roles.find(r => r.name == 'premium') // بدلها بأسم الرتبة يلي تبيها للمستخدمين
+  let member = support.members.get(guild.owner.user.id) 
+  if(member) {
+    member.addRole(role)
+  } else {
+    console.log(`this user not in support server`)
+  }
+})
 
-client.on("message", msg  => {
-    if (msg.content == `${prefix}check`) {
-        let guild = client.guilds.find(g => g.ownerID == msg.author.id)
-        if(!guild) return msg.channel.send(":x: No guilds for you, Try again.")
-        msg.channel.send(":tada: Congratulations, you get a role.")
-        client.guilds.get("584735012390436874").member(msg.author.id).addRole(client.guilds.get("584735012390436874").roles.get("588796145208393729"));   //she3a
-    }
-}) 
 
 client.login("NTg3NTk1MDc3Njk0NzgzNDg4.XP43Zg.rDI7D-W3OG_YAjIv5cQiog6MBBk");
