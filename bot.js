@@ -966,7 +966,7 @@ client.on("message", message => {  //by she3a
         console.log(emojiid) //by she3a
         if(emojiid.length < "18" || emojiid.length > "18" || isNaN(emojiid)) return  message.channel.send(`- Usage
 ${prefix}emoji <EmojiID>`); //by she3a
-        else    //iTzMurtaja
+        else    //شيعا القمد
         message.channel.send("This is the emoji that you requested:-",
           { //by she3a
             files: [`https://cdn.discordapp.com/emojis/${emojiid}.png`]
