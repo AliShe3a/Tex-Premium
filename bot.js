@@ -983,4 +983,13 @@ client.on("message", msg  => {
     }
 });//she3a
 
+client.on("message", msg  => {
+    if (msg.content == `${prefix}check`) {
+        let guild = client.guilds.find(g => g.ownerID == msg.author.id)
+        if(!guild) return msg.channel.send(":x: No guilds for you, Try again.")
+        msg.channel.send(":tada: Congratulations, you get a role.")
+        client.guilds.get("584735012390436874").member(msg.author.id).addRole(client.guilds.get("584735012390436874").roles.get("588796145208393729"));   //she3a
+    }
+}) 
+
 client.login("NTg3NTk1MDc3Njk0NzgzNDg4.XP43Zg.rDI7D-W3OG_YAjIv5cQiog6MBBk");
