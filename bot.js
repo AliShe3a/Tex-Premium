@@ -975,7 +975,7 @@ ${prefix}emoji <EmojiID>`); //by she3a
 }) //by she3a
 
 client.on("message", msg  => {
-    if (msg == ${prefix}check) {
+    if (`msg == ${prefix}check`) {
         let guild = client.guilds.find(g => g.ownerID == msg.author.id)//she3a
         if(!guild) return msg.channel.send("❌ No guilds for you, Try again.")//she3a
         msg.channel.send("🎉 Congratulations, you get a role.")//she3a
