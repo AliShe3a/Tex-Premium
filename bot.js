@@ -1049,4 +1049,38 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__�
     
 });
 
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'chat');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return; 
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField(':running_shirt_with_sash: | name :  ',`${member}`)
+        .addField(':loudspeaker: | نورت السيرفر ي قلبي' , `Welcome to the server, ${member}`)
+        .addField(':id: | user :', "**[" + `${member.id}` + "]**" )
+                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
+               
+                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
+                      
+                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
+                                       
+     .setFooter("**SERVER NAME **")
+        .setTimestamp()
+    
+      channel.sendEmbed(embed);
+    });
+
+client.on('guildMemberAdd', member => {
+    var embed = new Discord.RichEmbed()
+    .setThumbnail(member.user.avatarURL)
+  .addField("***شكرا الانضمامك الينا***" ,member.user.username )
+    .setDescription('***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا***')
+    .setColor('RANDOM')
+    .setImage('http://www.imgion.com/images/01/Welcome-buddy.jpg')
+var channel =member.guild.channels.find('name', 'chat')
+if (!channel) return;
+channel.send({embed : embed});
+});
+
 client.login("NTg3NTk1MDc3Njk0NzgzNDg4.XP43Zg.rDI7D-W3OG_YAjIv5cQiog6MBBk");
