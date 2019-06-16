@@ -1021,7 +1021,7 @@ client.on('guildCreate', guild => {
 
 client.on('message', message => {
 
-    if(message.content === prefix + "@mc") {
+    if(message.content === prefix + "mc") {
                         if(!message.channel.guild) return message.reply('** This command only for servers**');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
@@ -1033,7 +1033,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__
            });
              }
 //tex BOT
- if(message.content === prefix + "@unmc") {
+ if(message.content === prefix + "unmc") {
                      if(!message.channel.guild) return message.reply('** This command only for servers**');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
