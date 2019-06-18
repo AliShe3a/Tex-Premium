@@ -1077,7 +1077,7 @@ client.on('guildMemberAdd', member => {
   .addField("***شكرا الانضمامك الينا***" ,member.user.username )
     .setDescription('***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا***')
     .setColor('RANDOM')
-    .setImage('https://ibb.co/Pwv98PM')
+    .setImage('https://giphy.com/MXdaDboHiejWlC4sRc')
 var channel =member.guild.channels.find('name', 'chat')
 if (!channel) return;
 channel.send({embed : embed});
