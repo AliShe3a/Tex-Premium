@@ -5,7 +5,7 @@ const { Client, Util } = require('discord.js');
 const Enmap = require('enmap');
 const ytScraper = require("yt-scraper")
 client.on('message', message => {
-    var prefix = "@";
+    const prefix = "@";
    
         if (message.author.id === client.user.id) return;
         if (message.guild) {
@@ -34,7 +34,6 @@ client.on('message', message => {
 
 
 client.on('message', msg => {
-	var prefix = "@";
   if (msg.author.bot) return;
   if (!msg.content.startsWith(prefix)) return;
   let command = msg.content.split(" ")[0];
@@ -62,7 +61,7 @@ client.on('message', msg => {
 
 
 client.on('message', function(message) {
-var prefix = "@" // هنا البريفكس
+ // هنا البريفكس
     if(message.content.startsWith(prefix + "report")) {
         let messageArgs = message.content.split(" ").slice(1).join(" ");
         let messageReason = message.content.split(" ").slice(2).join(" ");
@@ -125,35 +124,37 @@ client.on('message', msg => {
 });
 
 client.on('message', message => {
-var prefix = "@";
-       if(message.content === prefix + "close") {
-                           if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **:no_entry_sign:تم اغلاق الروم**');
-              message.channel.overwritePermissions(message.guild.id, {
-            SEND_MESSAGES: false
+  if(message.content === prefix + "@mc") {
+                      if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-              }).then(() => {
-                  message.reply("**:no_entry_sign:تم اغلاق الروم**")
-              });
-                }
-//FIRE BOT
-    if(message.content === prefix + "open") {
-                        if(!message.channel.guild) return message.reply('** This command only for servers**');
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
+         message.channel.overwritePermissions(message.guild.id, {
+       SEND_MESSAGES: false
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**:o: تم فتح الروم**');
-              message.channel.overwritePermissions(message.guild.id, {
-            SEND_MESSAGES: true
+         }).then(() => {
+             message.reply("**__تم تقفيل الشات__ :white_check_mark: **")
+         });
+           }
+//tex BOT
+if(message.content === prefix + "@unmc") {
+                   if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-              }).then(() => {
-                  message.reply("**:o: تم فتح الروم**")
-              });
-    }
-       
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
+         message.channel.overwritePermissions(message.guild.id, {
+       SEND_MESSAGES: true
+
+         }).then(() => {
+             message.reply("**__تم فتح الشات__:white_check_mark:**")
+         });
+           }
+           
+    
+  
 });
 
 client.on('message', message => {
- var prefix = "@"
+ 
  
 if (message.content.toLowerCase().startsWith(prefix + `new`)) {
     const reason = message.content.split(" ").slice(1).join(" ");
@@ -219,36 +220,9 @@ client.on('message', message => {
     });
 
 client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("EPIC","member"));
+    member.addRole(member.guild.roles.find("premium","member"));
     });
 
-client.on('message', message => {
-var prefix = "@";
-       if(message.content === prefix + "hide") {
-                           if(!message.channel.guild) return message.reply(' This command only for servers');
-
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
-              message.channel.overwritePermissions(message.guild.id, {
-            READ_MESSAGES: false
-
-              }).then(() => {
-                  message.reply("تم اخفاء الشات :white_check_mark: ")
-              });
-                }
-
-    if(message.content === prefix + "show") {
-                        if(!message.channel.guild) return message.reply(' This command only for servers');
-
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
-              message.channel.overwritePermissions(message.guild.id, {
-            READ_MESSAGES: true
-
-              }).then(() => {
-                  message.reply("تم اظهار الشات:white_check_mark:")
-              });
-    }
-
-});
 
 client.on('message', message => {
     var args = message.content.toLowerCase().split(' ');
