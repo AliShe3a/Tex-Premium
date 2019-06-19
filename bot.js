@@ -97,7 +97,7 @@ client.on('message', msg => {
 
 client.on('message', message => {
 
-  if(message.content === prefix + "@mc") {
+  if(message.content === prefix + "mc") {
                       if(!message.channel.guild) return message.reply('** This command only for servers**');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
@@ -109,7 +109,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__
          });
            }
 //tex BOT
-if(message.content === prefix + "@unmc") {
+if(message.content === prefix + "unmc") {
                    if(!message.channel.guild) return message.reply('** This command only for servers**');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
@@ -638,7 +638,7 @@ client.on("message", message => {
   
   client.on('message', async rokz => {
    
-      if(rokz.content.startsWith(prefix + "تقديم")) {
+      if(rokz.content.startsWith(prefix + "admin")) {
    
         let lang = '';
    
@@ -648,7 +648,7 @@ client.on("message", message => {
    
         let fillter = m => m.author.id === rokz.author.id
    
-        await rokz.channel.send("اسمك ؟").then(e => {
+        await rokz.channel.send("name ؟").then(e => {
    
        rokz.channel.awaitMessages(fillter, { time: 60000, max: 1 })
    
@@ -659,7 +659,7 @@ client.on("message", message => {
           co.first().delete();
    
    
-         e.edit(`عمرك ؟
+         e.edit(`age ؟
   [${lang}]`)
    
          rokz.channel.awaitMessages(fillter, { time: 60000, max: 1 })
@@ -671,7 +671,7 @@ client.on("message", message => {
             col.first().delete();
    
    
-              e.edit(`هدسعدنا في ايه و ازاي ؟
+              e.edit(`why ؟
   [${time}]
   [${lang}]`)
    
@@ -684,7 +684,7 @@ client.on("message", message => {
                  coll.first().delete();
    
    
-                 e.edit(`جاري تقديمك...
+                 e.edit(`now recording...
   [${expe}]
   [${time}]
   [${lang}]`)
@@ -693,15 +693,15 @@ client.on("message", message => {
    
                 setTimeout(() => {
    
-                  e.edit("تم التقديم")
+                  e.edit("recorded")
    
                 }, 3000)
    
                 rokzz.send(`
-  » االاسم : **${lang}**
-  » العمر : **${time}**
-  » الدليل انه مو نصاب : **${expe}**
-  تم التقديم بواسطة: ${rokz.author}
+  » name : **${lang}**
+  » age : **${time}**
+  » the cause : **${expe}**
+  who: ${rokz.author}
   `).then(rokzzz => {
    
                     rokzzz.react(":CheckMark:")
@@ -733,14 +733,14 @@ client.on("message", message => {
    
   let Room = client.channels.get('588254239827034112');
    
-  if(message.content.startsWith(prefix + "رفض")) {
+  if(message.content.startsWith(prefix + "no")) {
    
   if(message.guild.id !== '584735012390436874') return;
    
    if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
    
    
-  if(!mention) return message.reply("منشن شخص");
+  if(!mention) return message.reply("mention");
    
    
    
@@ -760,14 +760,14 @@ client.on("message", message => {
    
   let Room = client.channels.get('588254239827034112');
    
-  if(message.content.startsWith(prefix + "قبول")) {
+  if(message.content.startsWith(prefix + "yes")) {
    
   if(message.guild.id !== '584735012390436874') return;
    
-   if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**للأسف ليس لديك صلاحية**").then(msg => msg.delete(5000));
+   if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("**you dont have permission**").then(msg => msg.delete(5000));
    
    
-  if(!mention) return message.reply("منشن شخص");
+  if(!mention) return message.reply("mention");
    
    
    
@@ -979,7 +979,7 @@ client.on('message', message => {
 
 client.on("message", message => {  //by she3a
   if(message.content.startsWith(prefix + "emoji")) { //by she3a
-      if(message.author.bot) return; //iTzMurtaja
+      if(message.author.bot) return; //she3a
       var emojiid =  message.content.split(" ").slice(1).join(" ") //by she3a
       console.log(emojiid) //by she3a
       if(emojiid.length < "18" || emojiid.length > "18" || isNaN(emojiid)) return  message.channel.send(`- Usage
