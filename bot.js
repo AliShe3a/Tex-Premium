@@ -29,8 +29,67 @@ client.on('message', msg => {
 }
 });
 
+    client.on('message', message => {
+        if (message.author.bot) return;
+        if (!message.content.startsWith(prefix)) return;
+      
+        let command = message.content.split(" ")[0];
+        command = command.slice(prefix.length);
+      
+      
+      let args = message.content.split(" ").slice(1);
+      let x = args.join(" ")
+        if(message.content.startsWith(prefix + 'say')) {
+            message.channel.send(''+x);
+                message.delete(999)
+        }
+        
+       
+      });
+
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+  
+ 
+
+if (command == "esay") {
+    let say = new Discord.RichEmbed()
+    .setDescription(args.join("  "))
+    .setColor(0x23b2d6)
+    message.channel.sendEmbed(say);
+    message.delete();
+  }
 
 
+});
+
+client.on("message", msg => {
+    const rooms = []
+    msg.guild.channels.forEach(c => {
+        if(c.type !== "voice") return;
+        rooms.push(c.name);
+});
+    let args = msg.content.split(" ").slice(1).join(" ")
+    if(msg.content.startsWith(prefix+"move")){
+        if(!msg.member.voiceChannel) return msg.channel.send("**:no_entry:   You're not in voice channel! **");
+        if(!args) return msg.channel.send("**:no_entry:   Please be more specific**\`\`\`"+rooms.join("\n")+"\`\`\`");
+        if(isNaN(args)){
+            let channel = msg.guild.channels.find(ch => ch.name === args) || msg.mentions.members.first().voiceChannel;
+            if(!channel) return msg.channel.send("**:no_entry:   Please be more specific**\`\`\`"+rooms.join("\n")+"\`\`\`");
+            msg.member.setVoiceChannel(channel).then(msg.channel.send("**:white_check_mark:  "+msg.author.username+" moved to "+channel+"!**"))
+        } else {
+            let channel = msg.guild.channels.get(args) || msg.guild.members.get(args).voiceChannel
+            msg.member.setVoiceChannel(channel).then(msg.channel.send("**:white_check_mark:  "+msg.author.username+" moved to "+channel+"!**"));
+
+        }
+    }
+})
 
 client.on('message', function(message) {
  // هنا البريفكس
