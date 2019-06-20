@@ -216,25 +216,26 @@ client.on('guildMemberAdd', member=> {
 
 
 client.on('message', message => {
-    var args = message.content.toLowerCase().split(' ');
-    var command = args[0];
-    var prefix = '@';
-    var wordsSay = message.content.split(' ').slice(1).join(' ');
-   
-    if(command == prefix + 'say') {
-        var sayRole = message.guild.roles.find(r => r.name === 'support');
-        if(!sayRole) return message.channel.send('لا استطيع ايجاد رتبة `support` ');
-        if(!message.member.roles.has(sayRole.id)) return message.channel.send('يجب ان تتوفر لديك رتبة `support`');
-        if(!wordsSay) return message.channel.send(`***EX :*** ${prefix}say Hello World! `);
-       
-        message.delete();
-        let sayE = new Discord.RichEmbed()  
-        .setColor('RANDOM')
-        .setDescription(`**${wordsSay}**`)  
-       
-        message.channel.send(sayE);
-    }
-});     
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+  
+ 
+
+if (command == "say") {
+    let say = new Discord.RichEmbed()
+    .setDescription(args.join("  "))
+    .setColor(0x23b2d6)
+    message.channel.sendEmbed(say);
+    message.delete();
+  }
+
+
+});
 
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
