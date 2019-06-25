@@ -998,12 +998,5 @@ client.on("message", message => {
   }
 });
 
-client.on("message", msg => {
-let men = msg.mentions.members.first()
-if(!men || !men.voiceChannel) return;
-if(msg.content === prefix+"vkick") {
-men.setVoiceChannel(null)
-}
-});
 
 client.login(process.env.BOT_TOKEN);
