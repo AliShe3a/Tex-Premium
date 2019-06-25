@@ -57,6 +57,18 @@ client.on('message', async message => {  //she3a
         }
     });
 
+client.on('message', message => {
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('@obc')){
+if(!message.author.id === '357961207019470851') return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
+
     client.on('message', message => {
         if (message.author.bot) return;
         if (!message.content.startsWith(prefix)) return;
