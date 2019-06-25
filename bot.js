@@ -991,6 +991,19 @@ if (!channel) return;
 channel.send({embed : embed});
 });
 
+client.on("message", message => {
+  if(message.content.startsWith(prefix + "link")) {
+    var mbot = message.mentions.members.first()
+    message.channel.send(`https://discordapp.com/api/oauth2/authorize?client_id=${mbot.id}&permissions=0&scope=bot`)
+  }
+});
 
+client.on("message", msg => {
+let men = msg.mentions.members.first()
+if(!men || !men.voiceChannel) return;
+if(msg.content === prefix+"vkick") {
+men.setVoiceChannel(null)
+}
+});
 
 client.login(process.env.BOT_TOKEN);
