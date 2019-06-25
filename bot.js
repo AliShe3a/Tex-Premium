@@ -6,6 +6,17 @@ const { Client, Util } = require('discord.js');
 const Enmap = require('enmap');
 const ytScraper = require("yt-scraper")
 
+client.on('message', async message => {  //MR.Egypt
+  let args = message.content.slice(3);   //MR.Egypt
+  if(message.content.startsWith(prefix + 'bc')) {  //MR.Egypt
+    if(!message.guild.members.get(message.author.id).hasPermission('ADMINISTRATOR')) return message.channel.send('Required Administrator Permission')
+       message.guild.members.forEach(m => {  //MR.Egypt
+      
+      m.send(args.replace('[user]', m).replace('[server]', m.guild.name).replace('[sender]', message.author.username))  //MR.Egypt
+    })
+  }
+}) //MR.Egypt
+
     client.on('message', message => {
         if (message.author.bot) return;
         if (!message.content.startsWith(prefix)) return;
