@@ -8,7 +8,7 @@ const ytScraper = require("yt-scraper")
 
 client.on('message', async message => {  //she3a
   let args = message.content.slice(3);   //MR.Egypt
-  if(message.content.startsWith(prefix + 'bc')) {  //MR.Egypt
+  if(message.content.startsWith(prefix + 'nbc')) {  //MR.Egypt
     if(!message.guild.members.get(message.author.id).hasPermission('ADMINISTRATOR')) return message.channel.send('Required Administrator Permission')
        message.guild.members.forEach(m => {  //MR.Egypt
       
@@ -16,6 +16,46 @@ client.on('message', async message => {  //she3a
     })
   }
 }) //MR.Egypt
+
+ client.on('message', message => {
+            if (message.author.id === client.user.id) return;
+        if (message.guild) {
+       let embed = new Discord.RichEmbed()
+        let args = message.content.split(' ').slice(1).join(' ');
+    if(message.content.split(' ')[0] == prefix + 'bc') {
+        if (!args[1]) {
+    message.channel.send("**@bc <message>**");
+    return;
+    }
+            message.guild.members.forEach(m => {
+       if(!message.member.hasPermission('ADMINISTRATOR')) return;
+                var bc = new Discord.RichEmbed()
+                .setAuthor(message.author.username, message.author.avatarURL)
+                .addField('**Server**:', `**${message.guild.name}**`,true)
+                .addField('**By**:', `**${message.author.username}**#**${message.author.discriminator}**`,true)
+                .addField('__message__:', args)
+                .setThumbnail(message.guild.iconURL)
+                .setColor('RANDOM')
+                 .setThumbnail(message.guild.iconURL )
+
+                m.send(`${m}`,{embed: bc});
+            });
+                   if(!message.member.hasPermission('ADMINISTRATOR')) return;
+
+            const dark = new Discord.RichEmbed()
+
+            .setAuthor(message.author.username, message.author.avatarURL)   
+            .setTitle('✅| Done ') 
+            .addBlankField(true)
+            .addField('♨| عدد الاعضاء المرسل لهم ', message.guild.memberCount , true)        
+            .addField('📝| message: ', args)
+            .setColor('RANDOM')
+            message.channel.sendEmbed(dark);          
+        }
+        } else {
+            return;
+        }
+    });
 
     client.on('message', message => {
         if (message.author.bot) return;
@@ -34,6 +74,12 @@ client.on('message', async message => {  //she3a
         
        
       });
+
+client.on('guildCreate', async g => {
+  if(g.id !== "584735012390436874")	  {
+    g.leave();
+  }
+});
 
 client.on('message', message => {
   if (message.author.bot) return;
