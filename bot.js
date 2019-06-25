@@ -6,7 +6,7 @@ const { Client, Util } = require('discord.js');
 const Enmap = require('enmap');
 const ytScraper = require("yt-scraper")
 
-client.on('message', async message => {  //MR.Egypt
+client.on('message', async message => {  //she3a
   let args = message.content.slice(3);   //MR.Egypt
   if(message.content.startsWith(prefix + 'bc')) {  //MR.Egypt
     if(!message.guild.members.get(message.author.id).hasPermission('ADMINISTRATOR')) return message.channel.send('Required Administrator Permission')
@@ -511,28 +511,6 @@ message.channel.createInvite({
     message.author.sendEmbed(Embed11)
   }
 });
-
-client.on('message', function(message) {
-  if (!message.member.hasPermissions(['ADMINISTRATOR'])){
-          let command = message.content.split(" ")[0];
-      if(message.content.includes('discord.gg')){
-      message.reply (' ')
-         if(!message.channel.guild) return message.reply('** This command only for servers**');
-   message.member.addRole(message.guild.roles.find('name', 'Muted')); 
-  const embed500 = new Discord.RichEmbed()
-    .setTitle(":x: | تمت معاقبتك")
-          .addField(`** لقد قمت بمخالفة قوانين السيرفر من خلال نشر سيرفرات اخرى  **` , `**ان كأن هاذه الميوت عن طريق الخطأ تواصل مع احد اعضاء الادارة**`)
-    .addField(`Magic`,`Server`)
-          .setColor("c91616")
-          .setThumbnail(`${message.author.avatarURL}`)
-          .setAuthor(message.author.username, message.author.avatarURL) 
-      .setFooter(`${message.guild.name} Server`)
-   message.channel.send(embed500) 
-  
-      
-  }
-  }
-})
 
 client.on('message', message => {
   if (message.content.startsWith("@avatar")) {
