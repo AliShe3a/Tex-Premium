@@ -75,12 +75,6 @@ client.on('message', async message => {  //she3a
        
       });
 
-client.on('guildCreate', async g => {
-  if(g.id !== "584735012390436874")	  {
-    g.leave();
-  }
-});
-
 client.on('message', message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
