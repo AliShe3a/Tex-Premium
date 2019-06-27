@@ -1230,7 +1230,6 @@ function play(guild, song) {
 
 	serverQueue.textChannel.send(`بدء تشغيل : **${song.title}**`);
 }
-});
 
 const codes = {
     ' ': '   ',
@@ -1250,4 +1249,4 @@ const codes = {
     '*': '*⃣'
   };
 
-client.login('process.env.BOT_TOKEN');
+client.login(process.env.BOT_TOKEN);
