@@ -1250,4 +1250,4 @@ const codes = {
     '*': '*⃣'
   };
 
-client.login(process.env.BOT_TOKEN);
+client.login('NTg3NTk1MDc3Njk0NzgzNDg4.XQsndA.t6zD6K5PGB7BnM_pUHWCguuWIkg');
