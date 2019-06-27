@@ -16,6 +16,8 @@
      "simple-youtube-api": "^5.0.2",
     "opusscript": "0.0.6",
 "dateformat": "^3.0.3",
+"ffmpeg-binaries": "^3.2.2-3",
+"figlet": "^1.2.3",
 "moment": "^2.24.0",
 	"anti-spam": "0.2.7",
 "get-youtube-id": "1.0.1",
