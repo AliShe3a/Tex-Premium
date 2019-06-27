@@ -25,6 +25,7 @@ client.on('message', async message => {  //she3a
 }) //MR.Egypt
 
 client.on("message", message => {
+var prefix = "@";
  if (message.content === "@help") {
 	  message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
   const embed = new Discord.RichEmbed() 
