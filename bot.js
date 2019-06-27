@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const Canvas = require('canvas')
 const queue = new Map();
+const ytdl = require('ytdl-core');
 const figlet = require('figlet');
 const YouTube = require('simple-youtube-api');
 const client = new Discord.Client();
