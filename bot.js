@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const Canvas = require('canvas')
 const client = new Discord.Client();
 const youtube = new YouTube("AIzaSyBPDpS-wRHLdJcxeeSqPTf7ixUUrwVp-fk");
 const fetchVideoInfo = require('youtube-info');
