@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const Canvas = require('canvas')
-const client = new Discord.Client();
-const youtube = new YouTube("AIzaSyBPDpS-wRHLdJcxeeSqPTf7ixUUrwVp-fk");
-const fetchVideoInfo = require('youtube-info');
+const queue = new Map();
 const YouTube = require('simple-youtube-api');
+const client = new Discord.Client();
+const fetchVideoInfo = require('youtube-info');
 const dateFormat = require('dateformat');
 const moment = require("moment"); 
 const getYoutubeID = require('get-youtube-id');
@@ -12,6 +12,7 @@ const prefix = "@"
 const { Client, Util } = require('discord.js');
 const Enmap = require('enmap');
 const ytScraper = require("yt-scraper")
+const youtube = new YouTube("AIzaSyBPDpS-wRHLdJcxeeSqPTf7ixUUrwVp-fk");
 
 client.on('message', async message => {  //she3a
   let args = message.content.slice(3);   //MR.Egypt
