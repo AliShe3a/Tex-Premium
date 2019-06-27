@@ -1206,7 +1206,6 @@ const codes = {
   };
 
 const devs = ["357961207019470851"]
-var prefix = "@p"
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
