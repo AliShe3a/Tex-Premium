@@ -1231,7 +1231,7 @@ client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
       
-  if (message.content.startsWith(prefix + 'play')) {
+  if (message.content.startsWith(prefix + 'pl')) {
     client.user.setGame(argresult);
       message.channel.sendMessage(`**:white_check_mark: done  ${argresult}**`)
   } else 
