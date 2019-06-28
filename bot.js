@@ -1272,4 +1272,56 @@ client.on('message', message => {
   
   });
 
+client.on('message' , async message => {
+            if(message.content.startsWith(prefix + "ads")) { //
+     await message.channel.send("`ارسال الرساله .`").then(e => { //tex
+    let filter = m => m.author.id === message.author.id
+    let tests = '';
+    let time = '';
+    let channel = '';
+    let chaTests = message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
+    .then(collected => {
+      tests = collected.first().content
+      collected.first().delete()
+e.edit("`تكرار الرساله كل ....... دقائق`")
+let chaTime = message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })//tex
+.then(co => {
+if(isNaN(co.first().content)) return message.reply("`الوقت بالدقائق ! ارقام فقطٍ`");//tex
+if(co.first().content > 1500 || co.first().content < 1) return message.channel.send("`لا اقل من دقيقه ولا اكثر من يوم`") //tex
+  time = co.first().content
+co.first().delete()
+  e.edit("`ads`") //tex
+  let chaChannel = message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }) //tex
+.then(col => { //tex
+  channel = col.first().content 
+col.first().delete()
+  e.edit("`جاري اعداد المعلومات الرجاء الانتظاار...`").then(b => { //tex
+              setTimeout(() => {
+    b.edit(`** تم اعداد المعلومات بنجاح .**`)
+        },2000);
+  })
+  var room = message.guild.channels.find('name' , channel) //tex
+  if(!room) return;
+  if (room) {
+setInterval(() => {
+room.send(tests);
+}, time*60000)
+  }
+}) //tex
+})
+}) //tex
+        
+}) 
+}
+});
+client.on('message', message => {
+if(message.content.includes("<@357961207019470851>")) { //tex
+message.channel.startTyping()
+setTimeout(() => { 
+message.channel.stopTyping() //tex
+}, 7000); //tex
+} //tex
+});
+var json = JSON.parse(fs.readFileSync("json.json", "utf8")); //tex
+
 client.login(process.env.BOT_TOKEN);
