@@ -1294,8 +1294,6 @@ if(msg.content.startsWith(`${prefix}topservers`)){
   serveremmbed.setColor('#42A9C9')
   serveremmbed.setFooter(client.user.username,client.user.displayAvatarURL);
   msg.channel.send(serveremmbed);
-}});//she3a
-
-
+}});//she3
 
 client.login(process.env.BOT_TOKEN);
