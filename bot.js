@@ -1296,14 +1296,6 @@ if(msg.content.startsWith(`${prefix}topservers`)){
   msg.channel.send(serveremmbed);
 }});//she3a
 
-client.on("message", msg => {
-let men = msg.mentions.members.first()
-if(!men || !men.voiceChannel) return;
-if(msg.content === prefix+"vkick") {
-men.setVoiceChannel(null)
-}
-});
-
 
 
 client.login(process.env.BOT_TOKEN);
