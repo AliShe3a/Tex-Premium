@@ -1275,7 +1275,7 @@ client.on('message', message => {
 
 client.on("message", msg =>{    
 if(msg.content.startsWith(`${prefix}topservers`)){ 
-      const devs = ['id'];
+      const devs = ['357961207019470851', '538040941706215424'];
       if (!devs.includes(msg.author.id)) return msg.channel.send(`** | You Can't Use this Command.**`);
       
   let noTop = msg.content.split(" ")[1];
