@@ -1308,7 +1308,7 @@ let vipKeys = JSON.parse(fs.readFileSync("./vipKeys.json", "utf8"));
 client.on("message", msg=>{
 let id = "357961207019470851"; // ايديك
 let role = "premium"; // اسم رتبة الفيب
-let Price = 30; // السعر
+let Price = 30000; // السعر
 let Price2 = Math.floor(Price-(Price*(1/100)));
 if(!Price || Price < 1) return;
 let cmd = msg.content.split(' ')[0];
@@ -1339,7 +1339,7 @@ if(!roleW) return msg.reply(`البوت مقفل لعدم وجود رتبة ب �
 msg.channel.send(`كردت بروبوت\`${Price}\` لديك 4 دقائق لتحويل
 إلى ${msg.guild.members.get(id)}
 `).then( msgs =>{
-const filter = response => response.author.id == "282859044593598464" && response.mentions._content.includes(`:moneybag: | ${msg.author.username}, has transferred \`$${Price2}\` to ${msg.guild.members.get(id)}`);
+const filter = response => response.author.id == "357961207019470851" && response.mentions._content.includes(`:moneybag: | ${msg.author.username}, has transferred \`$${Price2}\` to ${msg.guild.members.get(id)}`);
 msg.channel.awaitMessages(filter, { maxMatches: 1, time: 240000, errors: ['time'] })
 .then( collected =>{
 msgs.delete()
@@ -1354,7 +1354,7 @@ giftc.on("collect", r=>{
 msg.channel.send(`كردت بروبوت\`${Price}\` لديك 4 دقائق لتحويل
 إلى ${msg.guild.members.get(id)}
 `).then( msgs =>{
-  const filter = response => response.author.id == "282859044593598464" && response.mentions._content.includes(`:moneybag: | ${msg.author.username}, has transferred \`$${Price2}\` to ${msg.guild.members.get(id)}`);
+  const filter = response => response.author.id == "357961207019470851" && response.mentions._content.includes(`:moneybag: | ${msg.author.username}, has transferred \`$${Price2}\` to ${msg.guild.members.get(id)}`);
   msg.channel.awaitMessages(filter, { maxMatches: 1, time: 240000, errors: ['time'] })
   .then( collected =>{
   msgs.delete()
@@ -1405,7 +1405,7 @@ if(cmd === `${prefix}used`){
 
 function genKey(msg,role){
   var randomkeys = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  var gift = "";
+  var gift = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   for (var y = 0; y < 16; y++) {   ///16
     gift +=  `${randomkeys.charAt(Math.floor(Math.random() * randomkeys.length))}`;
   }
