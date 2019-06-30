@@ -681,7 +681,7 @@ client.on("message", message => {
 const bud = require('basic-instagram-user-details');
 client.on("ready", () => {
   ytScraper.channelInfo("https://www.youtube.com/channel/UCfSicg9mxc_TCaaROMklU_A").then(data => {
-  client.channels.get("588282861107281930").setName(`~ YT Subs : ${data.subscribers}`)
+  client.channels.get("594678713950404610").setName(`~ Tex YT Subs : ${data.subscribers}`)
   })
   getAccountStats({username: 'TWITTER USERNAME'}).then(function(account) {
   client.channels.get("CHANNEL ID").setName(`~ Twitter followers : ${account.followers}`)
@@ -925,7 +925,7 @@ if(member) {
 })
 
 client.on('guildMemberAdd', member => {
-  let channel = member.guild.channels.find('name', 'chat');
+  let channel = member.guild.channels.find('name', 'welcome');
   let memberavatar = member.user.avatarURL
     if (!channel) return; 
   let embed = new Discord.RichEmbed()
@@ -953,7 +953,7 @@ client.on('guildMemberAdd', member => {
   .setDescription('***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا***')
   .setColor('RANDOM')
   .setImage('https://giphy.com/MXdaDboHiejWlC4sRc')
-var channel =member.guild.channels.find('name', 'chat')
+var channel =member.guild.channels.find('name', 'welcome')
 if (!channel) return;
 channel.send({embed : embed});
 });
