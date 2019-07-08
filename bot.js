@@ -28,27 +28,6 @@ client.on('message', async message => {  //she3a
   }
 }) //MR.Egypt
 
-client.on("message", message => {
- if (message.content === "@help") {
-	  message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
-  const embed = new Discord.RichEmbed() 
-      .setColor("#000000")
-      .setDescription(`
-	        اوامر الموسيقى 
-❖${prefix}play ~ لتشغيل أغنية برآبط أو بأسم
-❖${prefix}skip ~ لتجآوز الأغنية الحآلية
-❖${prefix}pause ~ إيقآف الأغنية مؤقتا
-❖${prefix}resume ~ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
-❖${prefix}vol ~ لتغيير درجة الصوت 100 - 0
-❖${prefix}stop ~ لإخرآج البوت من الروم
-❖${prefix}np ~ لمعرفة الأغنية المشغلة حآليا
-❖${prefix}queue ~ لمعرفة قآئمة التشغيل
- `)
-   message.author.sendEmbed(embed)
-    
-   }
-   });
-
  client.on('message', message => {
             if (message.author.id === client.user.id) return;
         if (message.guild) {
@@ -632,17 +611,62 @@ client.on('message', message => {
     }
     });
 
-client.on('message', message => {
-    if (message.content === "@help") {
-    let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setFooter(`© She3a ™.`, 'https://images-ext-2.discordapp.net/external/X9SanEG0s7Dtv3krTgy-kod_fj6JRVJ2AG4JryCiiz0/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/375761288518828042/fffa31c797e88cf059dd6db424ff456a.png?width=80&height=80')
-  .setColor("#000000")
-  .addField("help in here : https://premium-help-by-she3a.000webhostapp.com/css.html")
-  
-  
-  
-  message.channel.sendEmbed(embed);
+client.on('message', message => {//help msg
+    if (message.author.bot) return;
+     if (message.content === prefix + "help") {
+        message.react("☑")
+
+
+
+
+        message.author.sendMessage(`
+        **لتفعيل اللوق انشئ روم اسمه log**
+        ** يشمل البوت اشياء كثيرة ومنها مانع التهكير - لـ تفعيل مانع التهكير ارفع رتبة البوت فوق كل رتب الادارة **
+        __**الاوامر الادارية :gear:**__
+
+  ❖${prefix}**all** ==>**لاعطاء الكل الرتبة المحددة**
+  ❖${prefix}** ct ** ==>**لانشاء روم  كتابي**
+  ❖${prefix}** cc ** ==>**لانشاء مستند**
+  ❖${prefix}** cv ** ==>**لانشاء روم صوتي **
+  ❖${prefix}** mc ** ==>**تقفيل الشات**
+  ❖${prefix}** unmc ** ==>** فتح الشات**
+  ❖${prefix}** kick ** ==>**لطرد شخص من السيرفر**
+  ❖${prefix}** ban ** ==>**لحظر شخص من السيرفر**
+  ❖${prefix}** mute ** ==>**لاسكات عضو في السيرفر**
+  ❖${prefix}** unmute ** ==>**لفك الاسكات عن عضو في السيرفر**
+  ❖${prefix}** clear ** ==>**لمسح كل رسائل الشات**
+  ❖${prefix}** csay ** ==>**ساي**
+  ❖${prefix}** say ** ==>**ساي اخر**
+        __**الاوامر العامة :coffee:**__
+  ❖${prefix}** avatar ** ==>**لكي يعطيك رابط صورتك او صورة صديقك**
+  ❖${prefix}** emoji** ==>**جلب اي اموجي بي الاي دي**
+  ❖${prefix}** server ** ==>**لمعلومات السيرفر**
+  ❖${prefix}** id ** ==>**لمعلومات عنك**
+  ❖${prefix}** ping ** ==>**للتحقق من سرعة الاتصال**
+  ❖${prefix}** bot ** ==>**معلومات عن البوت**
+  ❖${prefix}** credits ** ==>**كود كيريدت**
+  ❖${prefix}** daily** ==>**الجأزه اليوميه**
+  ❖${prefix}** contact ** ==>**كلم صاحب السيرفر**
+  ❖${prefix}** report ** ==>**لابلاغ عن شخص**
+  ❖${prefix}** voice ** ==>**تحويل الكلام الى صوت**
+       __**القرآن الكريم و الميوزك :kaaba: :musical_note: **__
+  ❖${prefix}** play ** ==>**تشغيل اغنيه او موسيقى**
+  ❖${prefix}** stop ** ==>**اطفاء الاغنيه او الموسيقى**
+  ❖${prefix}** pause ** ==>**لتوقيف الاغنيه**
+  ❖${prefix}** resume ** ==>**لاكمال الاغنيه**
+  ❖${prefix}** np ** ==>**لمعرفه الاغنيه الحاليه**
+  ❖${prefix}** queue ** ==>**تشغيل اغنيه او موسيقى**
+  ❖${prefix}** replay ** ==>**اعاده تشغيل الاغنيه او الموسيقى**
+  ❖${prefix}** vol ** ==>**ترفيع وتقليل الصوت**
+
+
+
+  By : she3a | __**شكرا لكم لاستعمال البوت**__
+
+
+  `);
+
+
   }
   });
 
@@ -1295,51 +1319,7 @@ if(msg.content.startsWith(`${prefix}topservers`)){
   serveremmbed.setFooter(client.user.username,client.user.displayAvatarURL);
   msg.channel.send(serveremmbed);
 }});//she3
-["aliases", "commands"].forEach(x => client[x] = new Collection());
-const { readdirSync } = require('fs');
 
-module.exports = {
-    config: {
-        name: "1help",
-        desc: "displays the bots commands",
-        group: "util",
-        usage: "[command]",
-        aliases: ["commands"],
-        guildOnly: false,
-        ownerOnly: false,
-        userPerms: [],
-        clientPerms: [],
-    },
 
-    /**
-     * @param {import('discord.js').Client} client
-     * @param {import('discord.js').Message} message
-     * @param {String[]} args
-     */
-    run: async (client, message, args) => {
-        if (args[0] && client.commands.some(c => c.config.name.toLowerCase() === args[0].toLowerCase() || c.config.aliases.includes(args[0]))) {
-            let yesno = val => val ? "✅" : "❎";
-            let command = (client.commands.get(args[0]) || client.aliases.get(args[0])).config
-            let commandEmbed = client.embed.message(`\n\n**❯ Group:** ${command.group !== "" ? command.group : "None"}\n**❯ Aliases:** ${command.aliases.join(", ") || "None"}\n**❯ Guild Only: ${yesno(command.guildOnly)}\n❯ Owner Only: ${yesno(command.ownerOnly)}**`)
-                .setTitle(`${message.prefix}${command.name} ${command.usage}`)
-                .setFooter(command.desc)
-            return message.channel.send(commandEmbed);
-        };
-        let embed = new Discord.MessageEmbed()
-            .setColor(client.embed.defEmbed.color)
-            .setFooter(`[MenuDocs] Advanced`, client.user.displayAvatarURL)
-            .setTimestamp(new Date()).setTitle("")
-            .setDescription(`[MenuDocs] Advanced was made to show the viewers of [MenuDocs] what is possible with the **[discord.js](https://discord.js.org/)** library.\n\n**required <>, optional []**`)
-
-        readdirSync('./commands/').forEach((category) => {
-            const thisCategory = client.commands.filter(c => c.config.group === category);
-            if (thisCategory.size < 1) return;
-            const capitalise = category.slice(0, 1).toUpperCase() + category.slice(1)
-            embed.addField(`❯ ${capitalise} `, thisCategory.map(c => `\`${c.config.name}\``).join(', '));
-        });
-
-        return message.channel.send(embed);
-    }
-}
 
 client.login(process.env.BOT_TOKEN);
