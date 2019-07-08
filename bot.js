@@ -611,16 +611,15 @@ client.on('message', message => {
     }
     });
 
-client.on('message', message => {//help msg
-    if (message.author.bot) return;
-     if (message.content === prefix + "help") {
-        message.react("☑")
 
+ if (message.content === "@help") {
+     message.react("✔")
+	  message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
+  const embed = new Discord.RichEmbed() 
+      .setColor("#000000")
+      .setDescription(`
 
-
-
-        message.author.sendMessage(`
-        **لتفعيل اللوق انشئ روم اسمه log**
+ **لتفعيل اللوق انشئ روم اسمه log**
         ** يشمل البوت اشياء كثيرة ومنها مانع التهكير - لـ تفعيل مانع التهكير ارفع رتبة البوت فوق كل رتب الادارة **
         __**الاوامر الادارية :gear:**__
 
@@ -657,18 +656,17 @@ client.on('message', message => {//help msg
   ❖${prefix}** np ** ==>**لمعرفه الاغنيه الحاليه**
   ❖${prefix}** queue ** ==>**تشغيل اغنيه او موسيقى**
   ❖${prefix}** replay ** ==>**اعاده تشغيل الاغنيه او الموسيقى**
-  ❖${prefix}** vol ** ==>**ترفيع وتقليل الصوت**
+  ❖${prefix}** vol ** ==>**ترفيع وتقليل الصوت**لمعرفة قآئمة التشغيل
 
 
 
-  By : she3a | __**شكرا لكم لاستعمال البوت**__
+ By : she3a | __**شكرا لكم لاستعمال البوت**__
+ `)
+   message.author.sendEmbed(embed)
+    
+   }
+   }); 
 
-
-  `);
-
-
-  }
-  });
 
   client.on('message', message=>{
     if (message.content ===  "@leaves"){
