@@ -617,7 +617,6 @@ client.on('message', message => {
   const embed = new Discord.RichEmbed() 
       .setColor("#000000")
       .setDescription(`
-
  **لتفعيل اللوق انشئ روم اسمه log**
         ** يشمل البوت اشياء كثيرة ومنها مانع التهكير - لـ تفعيل مانع التهكير ارفع رتبة البوت فوق كل رتب الادارة **
         __**الاوامر الادارية :gear:**__
@@ -656,10 +655,6 @@ client.on('message', message => {
   ❖${prefix}** queue ** ==>**تشغيل اغنيه او موسيقى**
   ❖${prefix}** replay ** ==>**اعاده تشغيل الاغنيه او الموسيقى**
   ❖${prefix}** vol ** ==>**ترفيع وتقليل الصوت**لمعرفة قآئمة التشغيل
-
-
-
- By : she3a | __**شكرا لكم لاستعمال البوت**__
  `)
    message.author.sendEmbed(embed)
     
