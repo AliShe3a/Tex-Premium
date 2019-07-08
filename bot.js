@@ -613,6 +613,7 @@ client.on('message', message => {
  
   client.on('message', message => {
  if (message.content === "@help") {
+     message.react("✔")
       message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
   const embed = new Discord.RichEmbed()
       .setColor("#000000")
