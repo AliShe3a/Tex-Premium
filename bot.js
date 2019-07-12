@@ -1324,7 +1324,6 @@ if(msg.content.startsWith(`${prefix}topservers`)){
     const user = warn.mentions.members.first();
     const reason = warn.content.split(' ').slice(2).join(' ');
     if (warn.content === `${prefix}warn`) {
- if(!message.member.hasPermission('ADMINISTRATOR')) return; 
       const embed = new Discord.RichEmbed()
       .setAuthor('New Warn !')
       .setThumbnail(user.avatarURL)
