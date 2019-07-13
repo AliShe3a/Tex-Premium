@@ -1318,21 +1318,6 @@ if(msg.content.startsWith(`${prefix}topservers`)){
  msg.channel.send(serveremmbed);
 }});//she3
  
- client.on('message', warn => {
-    const log = warn.guild.channels.find(c => c.name === 'log');
-    const all = warn.guild.channels.find(c => c.name === 'chat');
-    const user = warn.mentions.members.first();
-    const reason = warn.content.split(' ').slice(2).join(' ');
-    if (warn.content === `${prefix}warn`) {
-      const embed = new Discord.RichEmbed()
-      .setAuthor('New Warn !')
-      .setThumbnail(user.avatarURL)
-      .addField('User Warned', `${user}`)
-      .addField('Warned By', `<@${warn.author.id}>`)
-      .addField('Reason', `${reason}`);
-        log.send({ embed });
-        all.send({ embed });
-    }
-});
  
+
 client.login(process.env.BOT_TOKEN);
