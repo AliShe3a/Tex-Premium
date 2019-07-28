@@ -703,7 +703,7 @@ client.on("message", message => {
 const bud = require('basic-instagram-user-details');
 client.on("ready", () => {
   ytScraper.channelInfo("https://www.youtube.com/channel/UCfSicg9mxc_TCaaROMklU_A").then(data => {
-  client.channels.get("605121074694324234").setName(`~ SHe3aSubs : ${data.subscribers}`)
+  client.channels.get("605121074694324234").setName(`~ She3a Subs : ${data.subscribers}`)
   })
   getAccountStats({username: 'TWITTER USERNAME'}).then(function(account) {
   client.channels.get("CHANNEL ID").setName(`~ Twitter followers : ${account.followers}`)
