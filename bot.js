@@ -1748,5 +1748,29 @@ client.on('message', async message => {
        })
       });
 
+client.on('message', msg => {
+  if(msg.content === '@hide') {
+    msg.guild.channels.forEach(c => {
+      c.overwritePermissions(msg.guild.id, {
+        SEND_MESSAGES: false,
+        READ_MESSAGES: false
+      })
+    })
+    msg.channel.send('**تم اخفاء الرومات من الاعضاء** ✔')
+  }
+})
+
+
+client.on('message', msg => {
+  if(msg.content === '@unhide') {
+    msg.guild.channels.forEach(c => {
+      c.overwritePermissions(msg.guild.id, {
+        SEND_MESSAGES: true,
+        READ_MESSAGES: true
+      })
+    })
+    msg.channel.send('تم اظهار الرومات كلها للاعضاء')
+  }
+})
 
 client.login(process.env.BOT_TOKEN);
