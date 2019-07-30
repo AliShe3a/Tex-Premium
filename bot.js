@@ -1852,7 +1852,7 @@ client.on('message', message => {
 });
 client.on('message', message => {
 
-    if (message.content === "@ser") {
+    if (message.content === "@server") {
 var year = message.guild.createdAt.getFullYear()
 var month = message.guild.createdAt.getMonth()
 var day = message.guild.createdAt.getDate()
