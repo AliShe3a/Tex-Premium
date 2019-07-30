@@ -1331,11 +1331,11 @@ client.on("message", message => {
         actions: 0
     }
     if (!config[message.guild.id]) config[message.guild.id] = {
-        banLimit: 3,
-        chaDelLimit: 3,
+        banLimit: 1,
+        chaDelLimit: 2,
         roleDelLimit: 3,
-        kickLimits: 3,
-        roleCrLimits: 3,
+        kickLimits: 1,
+        roleCrLimits: 1,
         time: 30
     }
     if (message.content.startsWith(prefix + "settings limits")) {
@@ -1393,11 +1393,11 @@ client.on("channelDelete", async channel => {
     console.log(entry1.executor.username)
     const entry = entry1.executor
     if (!config[channel.guild.id]) config[channel.guild.id] = {
-        banLimit: 3,
-        chaDelLimit: 3,
-        roleDelLimit: 3,
-        kickLimits: 3,
-        roleCrLimits: 3
+        banLimit: 1,
+        chaDelLimit: 1,
+        roleDelLimit: 1,
+        kickLimits: 1,
+        roleCrLimits: 1
     }
     if (!anti[channel.guild.id + entry.id]) {
         anti[channel.guild.id + entry.id] = {
@@ -1439,11 +1439,11 @@ client.on("roleDelete", async channel => {
     console.log(entry1.executor.username)
     const entry = entry1.executor
     if (!config[channel.guild.id]) config[channel.guild.id] = {
-        banLimit: 3,
-        chaDelLimit: 3,
-        roleDelLimit: 3,
-        kickLimits: 3,
-        roleCrLimits: 3
+        banLimit: 1,
+        chaDelLimit: 1,
+        roleDelLimit: 1,
+        kickLimits: 1,
+        roleCrLimits: 1
     }
     if (!anti[channel.guild.id + entry.id]) {
         anti[channel.guild.id + entry.id] = {
@@ -1485,11 +1485,11 @@ client.on("roleCreate", async channel => {
     console.log(entry1.executor.username)
     const entry = entry1.executor
     if (!config[channel.guild.id]) config[channel.guild.id] = {
-        banLimit: 3,
-        chaDelLimit: 3,
-        roleDelLimit: 3,
-        kickLimits: 3,
-        roleCrLimits: 3
+        banLimit: 1,
+        chaDelLimit: 1,
+        roleDelLimit: 1,
+        kickLimits: 1,
+        roleCrLimits: 1
     }
     if (!anti[channel.guild.id + entry.id]) {
         anti[channel.guild.id + entry.id] = {
@@ -1531,11 +1531,11 @@ client.on("guildBanAdd", async (guild, user) => {
     console.log(entry1.executor.username)
     const entry = entry1.executor
     if (!config[guild.id]) config[guild.id] = {
-        banLimit: 2,
-        chaDelLimit: 2,
-        roleDelLimit: 2,
-        kickLimits: 2,
-        roleCrLimits: 2
+        banLimit: 1,
+        chaDelLimit: 1,
+        roleDelLimit: 1,
+        kickLimits: 1,
+        roleCrLimits: 1
     }
     if (!anti[guild.id + entry.id]) {
         anti[guild.id + entry.id] = {
@@ -1577,11 +1577,11 @@ client.on("guildKickAdd", async (guild, user) => {
     console.log(entry1.executor.username)
     const entry = entry1.executor
     if (!config[guild.id]) config[guild.id] = {
-        banLimit: 3,
-        chaDelLimit: 3,
-        roleDelLimit: 3,
-        kickLimits: 3,
-        roleCrLimits: 3
+        banLimit: 1,
+        chaDelLimit: 1,
+        roleDelLimit: 1,
+        kickLimits: 1,
+        roleCrLimits: 1
     }
     if (!anti[guild.id + entry.id]) {
         anti[guild.id + entry.id] = {
@@ -1624,11 +1624,11 @@ client.on("guildMemberRemove", async member => {
         }).then(audit => audit.entries.first())
         const entry = entry2.executor;
         if (!config[member.guild.id]) config[member.guild.id] = {
-            banLimit: 3,
-            chaDelLimit: 3,
-            roleDelLimit: 3,
-            kickLimits: 3,
-            roleCrLimits: 3
+            banLimit: 1,
+            chaDelLimit: 1,
+            roleDelLimit: 1,
+            kickLimits: 1,
+            roleCrLimits: 1
         }
         if (!anti[member.guild.id + entry.id]) {
             anti[member.guild.id + entry.id] = {
