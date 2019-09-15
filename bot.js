@@ -1946,4 +1946,86 @@ var day = message.guild.createdAt.getDate()
 
 });
 
+client.on('message', message => {
+    var prefix = "@"
+if (message.content.startsWith(prefix + "uptime")) {
+   let uptime = client.uptime;
+
+   let days = 0;
+   let hours = 0;
+   let minutes = 0;
+   let seconds = 0;
+   let notCompleted = true;
+
+   while (notCompleted) {
+
+       if (uptime >= 8.64e+7) {
+
+           days++;
+           uptime -= 8.64e+7;
+
+       } else if (uptime >= 3.6e+6) {
+
+           hours++;
+           uptime -= 3.6e+6;
+
+       } else if (uptime >= 60000) {
+
+           minutes++;
+           uptime -= 60000;
+
+       } else if (uptime >= 1000) {
+           seconds++;
+           uptime -= 1000;
+
+       }
+
+       if (uptime < 1000)  notCompleted = false;
+
+   }
+
+   message.channel.send("`" + `${days} days, ${hours} hrs, ${minutes} min , ${seconds} sec` + "`");
+
+
+}
+});
+
+client.on('message', message =>{
+  let command = message.content.split(" ")[0];
+  if (command == prefix + "unban") {
+  if(!message.member.hasPermission('BAN_MEMBERS')) return;
+  let args = message.content.split(" ").slice(1).join(" ");
+  if(args == 'all') {message.guild.fetchBans().then(zg => {
+  zg.forEach(NoNo => {message.guild.unban(NoNo);})});
+  return message.channel.send('**✅ Unbanned all members **')}
+  if(!args) return message.channel.send('**Please Type the member ID / all**');
+  message.guild.unban(args).then(m =>{message.channel.send(`**✅ Unbanned ${m.username}**`);
+  }).catch(stry =>{message.channel.send(`**🙄 - I can't find \`${args}\` in the ban list**`)});
+  }});
+
+client.on('message', message => {
+    if (message.content.startsWith(prefix + 'yt')) {
+      let args = message.content.split(" ").slice(1).join(" ");
+      if(!args) return message.channel.send(`:rolling_eyes: **please type the channel link**`)
+      if(!args.includes('https://www.youtube.com/channel/','https://www.youtube.com/c/')) return message.channel.send('**I Can\'t find This Channel 💢**')
+    ytScraper.channelInfo(`${args}`).then(yt => {
+        const embed = new Discord.RichEmbed()
+        .setColor("#ff0000")
+        .setTitle(`**\`${yt.name}\`**'s channel Info`)
+        .setThumbnail(`https://cdn.discordapp.com/attachments/584630360017469461/595057510436831252/youtube.png`)
+        .addField(`**Subscribers**`, `${yt.subscribers}`,true)
+        .addField(`**Views**`, `${yt.views}`,true)
+        .addField(`**Created In**`, `${yt.joined}`,true)
+        .addField(`**URL**`, `[__Click Here__](${yt.url})`,true)
+        .addField(`**Description**`, `\`\`\`${yt.description}\`\`\``,true)
+        .setFooter(`Requested by ${message.author.tag}`,message.author.avatarURL)
+        .setTimestamp()
+  message.channel.send({embed});
+ 
+    })
+}
+});
+
+
+
 client.login(process.env.BOT_TOKEN);
